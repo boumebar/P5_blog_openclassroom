@@ -1,0 +1,10 @@
+{
+    "name": "boumediene/p5blog",
+    "authors": [
+        {
+            "name": "boumediene",
+            "email": "boume13@hotmail.com"
+        }
+    ],
+    "require": {}
+}
