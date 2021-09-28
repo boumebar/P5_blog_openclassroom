@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Article</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Article</h1>
+{% endblock %}
+
+{% block content %}
+	<h1>Je suis l'article n°
+		{{ id }}</h1>
+{% endblock %}

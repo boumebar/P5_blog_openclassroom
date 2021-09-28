@@ -3,7 +3,54 @@
 
 namespace App\Router;
 
+use Exception;
 
 class Route
 {
+
+
+    private $path;
+    private $controller;
+    private $matches = [];
+
+
+    public function __construct(string $path, string $controller)
+    {
+        $this->path = trim($path, "/");
+        $this->controller = $controller;
+    }
+
+    public function match(string $url)
+    {
+        $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
+        $pathToMatch = "#^$path$#";
+
+        if (preg_match($pathToMatch, $url, $matches)) {
+            $this->matches = $matches;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function execute()
+    {
+
+        $params = explode('@', $this->controller);
+        $controller = new $params[0];
+        $method = $params[1];
+
+        if (isset($this->matches[1])) {
+            $id = (int)$this->matches[1];
+
+
+            if ($id > 0) {
+                return $controller->$method($this->matches[1]);
+            } else {
+                throw new Exception('Cet id de post n\'existe pas ');
+            }
+        }
+
+        return $controller->$method();
+    }
 }

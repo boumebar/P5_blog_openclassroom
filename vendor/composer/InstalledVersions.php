@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '7fc3a501d73ef33d507e600b286ef2f2664fe4c6',
+    'reference' => '85a96227649dff0007450ab5869035a281c6710b',
     'name' => 'boumediene/p5blog',
   ),
   'versions' => 
@@ -42,7 +42,34 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '7fc3a501d73ef33d507e600b286ef2f2664fe4c6',
+      'reference' => '85a96227649dff0007450ab5869035a281c6710b',
+    ),
+    'filp/whoops' => 
+    array (
+      'pretty_version' => '2.14.3',
+      'version' => '2.14.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '89584ce67dd32307f1063cc43846674f4679feda',
+    ),
+    'psr/log' => 
+    array (
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -70,6 +97,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '3ad5af4aed07d0a0201bbcfc42658fe6c5b2fb8f',
+    ),
+    'twig/twig' => 
+    array (
+      'pretty_version' => 'v3.3.2',
+      'version' => '3.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
   ),
 );
