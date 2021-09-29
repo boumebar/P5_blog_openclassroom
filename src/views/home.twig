@@ -9,9 +9,12 @@
 {% endblock %}
 
 {% block title %}
-	<h1>Accueil</h1>
+	<h1>Barsali boumediene</h1>
+	<p>Mon premier blog en PHP</p>
 {% endblock %}
 
 {% block content %}
-	<h1>Je suis la home page</h1>
+	<p>
+		<a href="{{ constant('SCRIPT') ~ '/assets/files/mon_cv.pdf'}}" target="_blank" class="btn btn-success">Telecharger mon CV !</a>
+	</p>
 {% endblock %}
