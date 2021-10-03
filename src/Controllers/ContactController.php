@@ -9,6 +9,6 @@ class ContactController extends Controller
     public function show()
     {
 
-        $this->rend('contact');
+        $this->render('contact');
     }
 }

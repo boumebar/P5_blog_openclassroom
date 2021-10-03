@@ -1,0 +1,32 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Les articles</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/home-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Les Articles</h1>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		{% for post in posts %}
+			<div class="col-md-3">
+				<div class="card mb-3">
+					<div class="card-body">
+						<h5 class="card-title">{{ post.name|e }}</h5>
+						<p class="text-muted">{{ post.created_at|date("d F Y")}}</p>
+						<p>{{ post.content|u.truncate(25,'...',false) }}</p>
+						<p>
+							<a href="post/{{ post.id }}" class="btn btn-primary">Voir plus</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

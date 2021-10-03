@@ -16,10 +16,11 @@ $whoops->register();
 $router = new Router($_GET['url']);
 
 
-$router->get('/', 'App\Controllers\BlogController@index');
+$router->get('/index', 'App\Controllers\BlogController@index');
 $router->get('/posts', 'App\Controllers\BlogController@showAll');
 $router->get('/post/:id', 'App\Controllers\BlogController@show');
 $router->get('/contact', 'App\Controllers\ContactController@show');
+$router->get('/essai', 'App\Controllers\BlogController@essai');
 
 
 $router->run();

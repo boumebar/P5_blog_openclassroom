@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Je suis l'article n°
-		{{ id }}</h1>
+	<h1 class="mt-5">{{ post.name}}</h1>
+	<p class="text-muted">{{ post.created_at|date("d F Y")}}</p>
+	<p>{{ post.content}}</p>
 {% endblock %}
