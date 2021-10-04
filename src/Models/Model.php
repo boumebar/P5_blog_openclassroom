@@ -4,7 +4,6 @@
 namespace App\Models;
 
 use PDO;
-use App\Models\Post;
 use App\database\DBConnection;
 
 abstract class Model
