@@ -3,6 +3,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Post;
+
 class BlogController extends Controller
 {
 
@@ -13,18 +15,15 @@ class BlogController extends Controller
 
     public function showAll()
     {
-        $pdo = $this->db->getPDO();
-        $posts = $pdo->query('SELECT * FROM post ORDER BY created_at DESC LIMIT 12')->fetchAll();
+        $posts = (new Post($this->db))->all();
 
         $this->render('blog/index', ['posts' => $posts]);
     }
 
     public function show(int $id)
     {
-        $pdo = $this->db->getPDO();
-        $query = $pdo->prepare('SELECT * FROM post WHERE id = :id ');
-        $query->execute(['id' => $id]);
-        $post = $query->fetch();
+
+        $post = (new Post($this->db))->findById($id);
 
         $this->render('blog/show', ['post' => $post]);
     }

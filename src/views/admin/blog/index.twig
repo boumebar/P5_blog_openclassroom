@@ -12,4 +12,24 @@
 	<h1>Administration</h1>
 {% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+	<pre>
+	{{ dump(posts) }}
+</pre>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Titre</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for post in posts %}
+				<tr>
+					<td scope="row">{{ post.name}}</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

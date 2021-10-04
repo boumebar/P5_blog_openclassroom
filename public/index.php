@@ -21,6 +21,7 @@ $router->get('/posts', 'App\Controllers\BlogController@showAll');
 $router->get('/post/:id', 'App\Controllers\BlogController@show');
 $router->get('/contact', 'App\Controllers\ContactController@show');
 $router->get('/essai', 'App\Controllers\BlogController@essai');
+$router->get('/admin', 'App\Controllers\AdminController@index');
 
 
 $router->run();
