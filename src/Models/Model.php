@@ -3,14 +3,22 @@
 
 namespace App\Models;
 
+use App\database\DBConnection;
+
 abstract class Model
 {
+    protected $db;
 
-    public function all()
+    public function __construct(DBConnection $db)
+    {
+        $this->db = $db;
+    }
+
+    protected function all()
     {
     }
 
-    public function findById($id)
+    protected function findById($id)
     {
     }
 }

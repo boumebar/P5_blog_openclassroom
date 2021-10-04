@@ -16,7 +16,7 @@ class BlogController extends Controller
         $pdo = $this->db->getPDO();
         $posts = $pdo->query('SELECT * FROM post ORDER BY created_at DESC LIMIT 12')->fetchAll();
 
-        $this->render('posts', ['posts' => $posts]);
+        $this->render('blog/index', ['posts' => $posts]);
     }
 
     public function show(int $id)
@@ -26,7 +26,7 @@ class BlogController extends Controller
         $query->execute(['id' => $id]);
         $post = $query->fetch();
 
-        $this->render('post', ['post' => $post]);
+        $this->render('blog/show', ['post' => $post]);
     }
 
     public function essai()
