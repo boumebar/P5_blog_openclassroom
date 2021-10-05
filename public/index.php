@@ -4,6 +4,7 @@ require_once '../vendor/autoload.php';
 
 
 use App\Router\Router;
+use App\Router\RouterException;
 
 define('SCRIPT', dirname($_SERVER['SCRIPT_NAME']));
 
@@ -24,4 +25,12 @@ $router->get('/essai', 'App\Controllers\BlogController@essai');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
 
-$router->run();
+$router->get('/admin/delete/:id', 'App\Controllers\AdminController@delete');
+
+
+
+try {
+    $router->run();
+} catch (RouterException $e) {
+    echo $e->getMessage();
+}

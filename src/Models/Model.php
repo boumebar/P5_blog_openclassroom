@@ -24,7 +24,7 @@ abstract class Model
         return $query->fetchAll();
     }
 
-    public function findById(int $id): array
+    public function findById(int $id): Model
     {
         $pdo = $this->db->getPDO();
         $query = $pdo->prepare("SELECT * FROM $this->table WHERE id = :id ");
@@ -33,8 +33,9 @@ abstract class Model
         return $query->fetch();
     }
 
-    public function delete(int $id): void
+    public function delete(int $id)
     {
+        return 'delete';
     }
 
     public function update(int $id): void

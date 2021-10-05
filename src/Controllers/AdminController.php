@@ -16,4 +16,9 @@ class AdminController extends Controller
 
         $this->render('admin/blog/index', ['posts' => $posts]);
     }
+
+    public function delete()
+    {
+        echo 'delete';
+    }
 }
