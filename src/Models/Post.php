@@ -8,7 +8,6 @@ class Post extends Model
 {
 
     protected $table = "post";
-    protected $class = Post::class;
 
 
     public function getCreatedAt(): string

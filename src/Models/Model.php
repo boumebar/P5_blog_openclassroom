@@ -10,7 +10,6 @@ abstract class Model
 {
     protected $db;
     protected $table;
-    protected $class;
 
     public function __construct(DBConnection $db)
     {
@@ -21,15 +20,24 @@ abstract class Model
     {
         $pdo = $this->db->getPDO();
         $query = $pdo->query("SELECT * FROM $this->table ORDER BY created_at DESC");
-        $query->setFetchMode(PDO::FETCH_CLASS, $this->class, [$this->db]);
+        $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
         return $query->fetchAll();
     }
 
-    public function findById($id): array
+    public function findById(int $id): array
     {
         $pdo = $this->db->getPDO();
         $query = $pdo->prepare("SELECT * FROM $this->table WHERE id = :id ");
+        $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
         $query->execute(['id' => $id]);
         return $query->fetch();
+    }
+
+    public function delete(int $id): void
+    {
+    }
+
+    public function update(int $id): void
+    {
     }
 }
