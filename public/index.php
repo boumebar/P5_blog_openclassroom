@@ -25,7 +25,7 @@ $router->get('/essai', 'App\Controllers\BlogController@essai');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
 
-$router->get('/admin/delete/:id', 'App\Controllers\AdminController@delete');
+$router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 
 
