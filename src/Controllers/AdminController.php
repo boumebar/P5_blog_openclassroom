@@ -21,4 +21,10 @@ class AdminController extends Controller
     {
         echo 'delete';
     }
+
+
+    public function update()
+    {
+        $this->render('admin/blog/update');
+    }
 }

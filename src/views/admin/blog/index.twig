@@ -25,7 +25,7 @@
 				<tr>
 					<td scope="row">{{ post.name}}</td>
 					<td class="text-end">
-						<a href="#" class="btn btn-warning">Modifier</a>
+						<a href="admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
 						<form method="post" action="admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
