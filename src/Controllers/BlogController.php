@@ -3,6 +3,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 
 class BlogController extends Controller
@@ -24,8 +25,9 @@ class BlogController extends Controller
     {
 
         $post = (new Post($this->db))->findById($id);
+        $comments = (new Comment($this->db))->findByPostID($id);
 
-        $this->render('blog/show', ['post' => $post]);
+        $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
     }
 
     public function essai()
