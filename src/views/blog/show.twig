@@ -13,7 +13,30 @@
 {% endblock %}
 
 {% block content %}
-	<h1 class="mt-5">{{ post.name}}</h1>
+	<h2 class="mt-5">{{ post.name}}</h2>
 	<p class="text-muted">{{ post.created_at|date("d F Y")}}</p>
 	<p>{{ post.content}}</p>
+
+
+	<h2>Commentaires</h2>
+	<form class="form-block" action="#" method="post">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="form-group">
+					<input class="form-input" name="author" type="text" placeholder="Nom">
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="form-group">
+					<input class="form-input" name="email" type="email" placeholder="Email">
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="form-group">
+					<textarea name="comment" class="form-input" required="" placeholder="Votre commentaire"></textarea>
+				</div>
+			</div>
+			<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
+		</div>
+	</form>
 {% endblock %}
