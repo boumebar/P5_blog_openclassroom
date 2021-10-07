@@ -29,9 +29,4 @@ class BlogController extends Controller
 
         $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
     }
-
-    public function essai()
-    {
-        $this->render('essai');
-    }
 }

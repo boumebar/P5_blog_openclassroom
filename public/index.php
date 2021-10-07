@@ -21,14 +21,13 @@ $router->get('/index', 'App\Controllers\BlogController@index');
 $router->get('/posts', 'App\Controllers\BlogController@showAll');
 $router->get('/post/:id', 'App\Controllers\BlogController@show');
 $router->get('/contact', 'App\Controllers\ContactController@show');
-$router->get('/essai', 'App\Controllers\BlogController@essai');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
-//update
+//update post
 $router->get('/admin/update/:id', 'App\Controllers\AdminController@update');
 $router->post('/admin/update_post/:id', 'App\Controllers\AdminController@updatePost');
 
-//delete
+//delete post
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 
