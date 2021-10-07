@@ -33,9 +33,11 @@ abstract class Model
         return $query->fetch();
     }
 
-    public function delete(int $id)
+    public function delete(int $id): bool
     {
-        return 'delete';
+        $pdo = $this->db->getPDO();
+        $query = $pdo->prepare("DELETE FROM $this->table WHERE id = :id");
+        return $query->execute(['id' => $id]);
     }
 
     public function update(int $id): void
