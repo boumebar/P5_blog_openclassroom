@@ -21,7 +21,6 @@ class AdminController extends Controller
     {
         $post = new Post($this->db);
         $result = $post->delete($id);
-        dd($result);
 
         if ($result) {
             return header('Location : admin/');
