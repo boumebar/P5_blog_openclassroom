@@ -3,22 +3,30 @@
 
 namespace App\Controllers;
 
+use App\Models\Comment;
+use App\Models\Post;
+
 class BlogController extends Controller
 {
 
     public function index()
     {
-        $this->rend('home');
+        $this->render('home');
     }
 
     public function showAll()
     {
-        $this->rend('home');
+        $posts = (new Post($this->db))->all();
+
+        $this->render('blog/index', ['posts' => $posts]);
     }
 
     public function show(int $id)
     {
 
-        $this->rend('post', ['id' => $id]);
+        $post = (new Post($this->db))->findById($id);
+        $comments = (new Comment($this->db))->findByPostID($id);
+
+        $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
     }
 }

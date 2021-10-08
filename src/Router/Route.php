@@ -3,6 +3,7 @@
 
 namespace App\Router;
 
+use App\database\DBConnection;
 use Exception;
 
 class Route
@@ -24,7 +25,6 @@ class Route
     {
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
         $pathToMatch = "#^$path$#";
-
         if (preg_match($pathToMatch, $url, $matches)) {
             $this->matches = $matches;
             return true;
@@ -37,7 +37,7 @@ class Route
     {
 
         $params = explode('@', $this->controller);
-        $controller = new $params[0];
+        $controller = new $params[0](new DBConnection("blog_openclassroom", "127.0.0.1", "root", ""));
         $method = $params[1];
 
         if (isset($this->matches[1])) {

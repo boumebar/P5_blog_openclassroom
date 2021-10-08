@@ -5,16 +5,21 @@
 {% endblock %}
 
 {% block image %}
-	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/home-bg.jpg'}}) "
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/home.jpg'}}) "
 {% endblock %}
 
 {% block title %}
-	<h1>Barsali boumediene</h1>
-	<p>Mon premier blog en PHP</p>
+	<h1>Hello ;)</h1>
+	<p>Je suis boumediene, développeur PHP/Symfony</p>
+	<div class="container">
+		<p class="d-inline">
+			<a href="{{ constant('SCRIPT') ~ '/assets/files/mon_cv.pdf'}}" target="_blank" class="m-3 btn btn-primary">Voir mon CV !</a>
+		</p>
+		<p class="d-inline">
+			<a href="contact" class="m-3 btn btn-primary">Contactez-moi</a>
+		</p>
+	</div>
+
 {% endblock %}
 
-{% block content %}
-	<p>
-		<a href="{{ constant('SCRIPT') ~ '/assets/files/mon_cv.pdf'}}" target="_blank" class="btn btn-success">Telecharger mon CV !</a>
-	</p>
-{% endblock %}
+{% block content %}{% endblock %}

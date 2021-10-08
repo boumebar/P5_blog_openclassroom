@@ -1,0 +1,64 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Article</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Article</h1>
+{% endblock %}
+
+{% block content %}
+	<h2 class="mt-5">{{ post.name}}</h2>
+	<p class="text-muted">{{ post.created_at|date("d F Y")}}</p>
+	<p>{{ post.content}}</p>
+
+
+	<div class="container">
+		<div class="be-comment-block">
+			<h2 class="comments-title">Commentaires</h2>
+
+			{% for comment in comments %}
+				<div class="be-comment">
+					<div class="be-comment-content">
+						<span class="be-comment-name">
+							<a href="blog-detail-2.html">{{ comment.author}}</a>
+						</span>
+						<span class="be-comment-time">
+							<i class="fa fa-clock-o"></i>
+							{{ comment.created_at}}
+						</span>
+
+						<p class="be-comment-text">{{ comment.content}}</p>
+					</div>
+				</div>
+			{% endfor %}
+
+
+			<form class="form-block" action="#" method="post">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<input class="form-input" name="author" type="text" placeholder="Nom">
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<input class="form-input" name="email" type="email" placeholder="Email">
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<div class="form-group">
+							<textarea name="comment" class="form-input" required="" placeholder="Votre commentaire"></textarea>
+						</div>
+					</div>
+					<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Modifier l'article</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Modifier l'article</h1>
+{% endblock %}
+
+{% block content %}
+	<div class="my-5">
+		<form method="POST" action="">
+			<div class="form-floating">
+				<input class="form-control" id="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
+				<label for="title">Titre</label>
+				<div class="invalid-feedback" data-sb-feedback="title:required">A name is required.</div>
+			</div>
+			<div class="form-floating">
+				<input class="form-control" id="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo"/>
+				<label for="chapo">Chapô</label>
+				<div class="invalid-feedback" data-sb-feedback="chapo:required">An chapo is required.</div>
+				<div class="invalid-feedback" data-sb-feedback="chapo:chapo">chapo is not valid.</div>
+			</div>
+			<div class="form-floating">
+				<input class="form-control" id="author" type="text" placeholder="Enter your author..." data-sb-validations="required"/>
+				<label for="author">Auteur</label>
+				<div class="invalid-feedback" data-sb-feedback="author:required">An author is required.</div>
+			</div>
+			<div class="form-floating">
+				<textarea class="form-control" id="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required"></textarea>
+				<label for="content">Contenu</label>
+				<div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
+			</div>
+			<br/>
+			<!-- Submit success message-->
+			<!---->
+			<!-- This is what your users will see when the form-->
+			<!-- has successfully submitted-->
+				<div class="d-none" id="submitSuccessMessage"> <div class="text-center mb-3">
+					<div class="fw-bolder">Votre message a été envoyé</div>
+				</div>
+			</div>
+			<!-- Submit error message-->
+			<!---->
+			<!-- This is what your users will see when there is-->
+			<!-- an error submitting the form-->
+				<div class="d-none" id="submitErrorMessage"> <div class="text-center text-danger mb-3">Une erreur est survenue</div>
+			</div>
+			<!-- Submit Button-->
+			<button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Envoi</button>
+		</form>
+	</div>
+
+{% endblock %}
