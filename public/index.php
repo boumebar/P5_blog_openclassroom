@@ -30,6 +30,9 @@ $router->post('/admin/update_post/:id', 'App\Controllers\AdminController@updateP
 //delete post
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
+// add post
+$router->post('admin/add', 'App\Controllers\Admincontroller@create');
+
 
 try {
     $router->run();

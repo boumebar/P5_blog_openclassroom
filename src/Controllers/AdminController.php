@@ -23,13 +23,19 @@ class AdminController extends Controller
         $result = $post->delete($id);
 
         if ($result) {
-            return header('Location : admin/');
+            return header('Location: ../');
         }
     }
 
 
-    public function update()
+    public function update($id)
     {
-        $this->render('admin/blog/update');
+        $post = (new Post($this->db))->findById($id);
+        $this->render('admin/blog/update', ['post' => $post]);
+    }
+
+    public function create()
+    {
+        $this->render('admin/blog/create');
     }
 }
