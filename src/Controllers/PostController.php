@@ -6,11 +6,13 @@ namespace App\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
 
     public function index()
     {
+        $posts = (new Post($this->db))->all();
+
         $this->render('home');
     }
 

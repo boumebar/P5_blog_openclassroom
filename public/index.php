@@ -18,9 +18,9 @@ $whoops->register();
 $router = new Router($_GET['url']);
 
 
-$router->get('/index', 'App\Controllers\BlogController@index');
-$router->get('/posts', 'App\Controllers\BlogController@showAll');
-$router->get('/post/:id', 'App\Controllers\BlogController@show');
+$router->get('/index', 'App\Controllers\PostController@index');
+$router->get('/posts', 'App\Controllers\PostController@showAll');
+$router->get('/post/:id', 'App\Controllers\PostController@show');
 $router->get('/contact', 'App\Controllers\ContactController@show');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
@@ -32,8 +32,8 @@ $router->post('/admin/update_post/:id', 'App\Controllers\AdminController@updateP
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
-$router->get('admin/add', 'App\Controllers\Admincontroller@create');
-$router->post('admin/add', 'App\Controllers\Admincontroller@createPost');
+$router->get('admin/add', 'App\Controllers\Admincontroller@add');
+$router->post('admin/create', 'App\Controllers\Admincontroller@create');
 
 
 try {

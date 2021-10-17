@@ -21,13 +21,13 @@
 				<div class="invalid-feedback" data-sb-feedback="title:required">A name is required.</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo"/>
+				<input class="form-control" id="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo" value="{{post.getChapo}}"/>
 				<label for="chapo">Chapô</label>
 				<div class="invalid-feedback" data-sb-feedback="chapo:required">An chapo is required.</div>
 				<div class="invalid-feedback" data-sb-feedback="chapo:chapo">chapo is not valid.</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="author" type="text" placeholder="Enter your author..." data-sb-validations="required"/>
+				<input class="form-control" id="author" type="text" placeholder="Enter your author..." data-sb-validations="required" value="{{post.getAuthor}}"/>
 				<label for="author">Auteur</label>
 				<div class="invalid-feedback" data-sb-feedback="author:required">An author is required.</div>
 			</div>

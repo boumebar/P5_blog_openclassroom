@@ -23,7 +23,7 @@ class AdminController extends Controller
         $result = $post->delete($id);
 
         if ($result) {
-            return header('Location: ..');
+            return header('Location: ' . BASE . "/admin");
         }
     }
 
@@ -34,8 +34,14 @@ class AdminController extends Controller
         $this->render('admin/blog/update', ['post' => $post]);
     }
 
-    public function create()
+    public function add()
     {
         $this->render('admin/blog/create');
+    }
+
+
+    public function create()
+    {
+        return header('Location: ' . BASE . "/admin");
     }
 }
