@@ -22,7 +22,7 @@
 						<h5 class="card-title">{{ post.getTitle }}</h5>
 						<small class="text-muted">
 							{{ post.getCreatedAt}}</small>
-						<p>{{ post.getContent|u.truncate(25,'...',false) }}</p>
+						<p>{{ post.getChapo }}</p>
 						<p>
 							<a href="{{constant('BASE')}}/post/{{ post.getId }}" class="btn btn-primary">Voir plus</a>
 						</p>

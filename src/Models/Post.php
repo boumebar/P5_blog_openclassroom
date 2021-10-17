@@ -13,7 +13,8 @@ class Post extends Model
 
     private $id;
     private $title;
-    private $slug;
+    private $author;
+    private $chapo;
     private $content;
     private $createdAt;
 
@@ -51,32 +52,13 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setTiltle($title)
+    public function setTitle($title)
     {
         $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * Get the value of slug
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set the value of slug
-     *
-     * @return  self
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 
     /**
      * Get the value of content
@@ -114,6 +96,46 @@ class Post extends Model
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set the value of author
+     *
+     * @return  self
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chapo
+     */
+    public function getChapo()
+    {
+        return $this->chapo;
+    }
+
+    /**
+     * Set the value of chapo
+     *
+     * @return  self
+     */
+    public function setChapo($chapo)
+    {
+        $this->chapo = $chapo;
 
         return $this;
     }
