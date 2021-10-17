@@ -26,7 +26,7 @@ $router->get('/admin', 'App\Controllers\AdminController@index');
 
 //update post
 $router->get('/admin/update/:id', 'App\Controllers\AdminController@update');
-$router->post('/admin/update_post/:id', 'App\Controllers\AdminController@updatePost');
+$router->post('/admin/update/:id', 'App\Controllers\AdminController@update');
 
 //delete post
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');

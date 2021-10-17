@@ -30,8 +30,14 @@ class AdminController extends Controller
 
     public function update($id)
     {
-        $post = (new Post($this->db))->findById($id);
-        $this->render('admin/blog/update', ['post' => $post]);
+        if (!empty($_POST)) {
+            dump($_POST);
+            echo 'je suis l\'article' . $id;
+        } else {
+
+            $post = (new Post($this->db))->findById($id);
+            $this->render('admin/blog/update', ['post' => $post]);
+        }
     }
 
     public function add()
