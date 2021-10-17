@@ -20,7 +20,7 @@ class Comment extends Model
 
         $pdo = $this->db->getPDO();
 
-        $query = $pdo->prepare('SELECT * FROM comment WHERE post_id=:post_id ORDER BY created_at DESC');
+        $query = $pdo->prepare('SELECT * FROM comment WHERE post_id=:post_id ORDER BY createdAt DESC');
 
         $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
 

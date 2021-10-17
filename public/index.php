@@ -7,6 +7,7 @@ use App\Router\Router;
 use App\Router\RouterException;
 
 define('SCRIPT', dirname($_SERVER['SCRIPT_NAME']));
+define('BASE', (dirname(dirname($_SERVER['SCRIPT_NAME']))));
 
 define('DEBUG_TIME', microtime(true));
 

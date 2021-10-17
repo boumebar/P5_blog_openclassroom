@@ -16,7 +16,7 @@
 	<div class="my-5">
 		<form method="POST" action="">
 			<div class="form-floating">
-				<input class="form-control" id="title" type="text" placeholder="Enter your title..." data-sb-validations="required" value="{{post.name}}"/>
+				<input class="form-control" id="title" type="text" placeholder="Enter your title..." data-sb-validations="required" value="{{post.getTitle}}"/>
 				<label for="title">Titre</label>
 				<div class="invalid-feedback" data-sb-feedback="title:required">A name is required.</div>
 			</div>
@@ -32,7 +32,7 @@
 				<div class="invalid-feedback" data-sb-feedback="author:required">An author is required.</div>
 			</div>
 			<div class="form-floating">
-				<textarea class="form-control" id="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required">{{post.content}}</textarea>
+				<textarea class="form-control" id="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required">{{post.getContent}}</textarea>
 				<label for="content">Contenu</label>
 				<div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
 			</div>

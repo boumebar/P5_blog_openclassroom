@@ -23,7 +23,7 @@ class AdminController extends Controller
         $result = $post->delete($id);
 
         if ($result) {
-            return header('Location: ../');
+            return header('Location: ..');
         }
     }
 

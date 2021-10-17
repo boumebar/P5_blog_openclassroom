@@ -12,7 +12,7 @@ class Post extends Model
 
 
     private $id;
-    private $name;
+    private $title;
     private $slug;
     private $content;
     private $createdAt;
@@ -39,21 +39,21 @@ class Post extends Model
     }
 
     /**
-     * Get the value of name
+     * Get the value of title
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
-     * Set the value of name
+     * Set the value of title
      *
      * @return  self
      */
-    public function setName($name)
+    public function setTiltle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }

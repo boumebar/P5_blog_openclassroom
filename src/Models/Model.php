@@ -19,7 +19,7 @@ abstract class Model
     public function all(): array
     {
         $pdo = $this->db->getPDO();
-        $query = $pdo->query("SELECT * FROM $this->table ORDER BY created_at DESC");
+        $query = $pdo->query("SELECT * FROM $this->table ORDER BY createdAt DESC");
         $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
         return $query->fetchAll();
     }
@@ -40,7 +40,13 @@ abstract class Model
         return $query->execute(['id' => $id]);
     }
 
-    public function update(int $id): void
+    public function update(int $id): bool
     {
+        $pdo = $this->db->getPDO();
+        $query = $pdo->prepare("UPDATE $this->table SET WHERE id = :id");
+        return $query->execute([
+            'id'  => $id,
+
+        ]);
     }
 }

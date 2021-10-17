@@ -13,7 +13,8 @@
 {% endblock %}
 
 {% block content %}
-	<form method="post" action="add">
+
+	<form method="post" action="{{constant('BASE')}}/admin/add">
 		<button class="btn btn-primary">Ajouter un article</button>
 	</form>
 	<table class="table">
@@ -26,10 +27,10 @@
 		<tbody>
 			{% for post in posts %}
 				<tr>
-					<td scope="row">{{ post.name}}</td>
+					<td scope="row">{{ post.getTitle}}</td>
 					<td class="text-end">
-						<a href="update/{{post.id}}" class="btn btn-warning">Modifier</a>
-						<form method="post" action="delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+						<a href="admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
+						<form method="post" action="admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>
