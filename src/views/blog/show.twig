@@ -43,7 +43,7 @@
 			{% endfor %}
 
 
-			<form class="form-block" action="#" method="post">
+			<form class="form-block" action="{{ constant('BASE')}}/comment/add" method="post">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
@@ -57,7 +57,7 @@
 					</div>
 					<div class="col-xs-12">
 						<div class="form-group">
-							<textarea name="comment" class="form-input" required="" placeholder="Votre commentaire"></textarea>
+							<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
 						</div>
 					</div>
 					<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
