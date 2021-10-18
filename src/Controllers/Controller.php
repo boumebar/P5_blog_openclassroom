@@ -25,6 +25,8 @@ abstract class Controller
         ]);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         $this->twig->addExtension(new StringExtension());
+        $this->twig->addGlobal('_post', $_POST);
+        $this->twig->addGlobal('_get', $_GET);
 
 
         echo $this->twig->render($page . '.twig', $params);

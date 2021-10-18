@@ -27,17 +27,6 @@ class Post extends Model
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Get the value of title
@@ -54,7 +43,7 @@ class Post extends Model
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->title = htmlspecialchars($title);
 
         return $this;
     }
@@ -75,7 +64,7 @@ class Post extends Model
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->content = htmlspecialchars($content);
 
         return $this;
     }
@@ -115,7 +104,7 @@ class Post extends Model
      */
     public function setAuthor($author)
     {
-        $this->author = $author;
+        $this->author = htmlspecialchars($author);
 
         return $this;
     }
@@ -135,7 +124,7 @@ class Post extends Model
      */
     public function setChapo($chapo)
     {
-        $this->chapo = $chapo;
+        $this->chapo = htmlspecialchars($chapo);
 
         return $this;
     }

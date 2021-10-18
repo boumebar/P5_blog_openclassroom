@@ -33,7 +33,7 @@ $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
 $router->get('admin/add', 'App\Controllers\Admincontroller@add');
-$router->post('admin/create', 'App\Controllers\Admincontroller@create');
+$router->post('admin/add', 'App\Controllers\Admincontroller@add');
 
 
 try {

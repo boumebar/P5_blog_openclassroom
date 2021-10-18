@@ -14,25 +14,25 @@
 
 {% block content %}
 	<div class="my-5">
-		<form method="POST" action="create">
+		<form method="POST" action="{{constant('BASE')}}/admin/add">
 			<div class="form-floating">
-				<input class="form-control" id="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
+				<input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
 				<label for="title">Titre</label>
 				<div class="invalid-feedback" data-sb-feedback="title:required">A name is required.</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo"/>
+				<input class="form-control" id="chapo" name="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo"/>
 				<label for="chapo">Chapô</label>
 				<div class="invalid-feedback" data-sb-feedback="chapo:required">An chapo is required.</div>
 				<div class="invalid-feedback" data-sb-feedback="chapo:chapo">chapo is not valid.</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="author" type="text" placeholder="Enter your author..." data-sb-validations="required"/>
+				<input class="form-control" id="author" name="author" type="text" placeholder="Enter your author..." data-sb-validations="required"/>
 				<label for="author">Auteur</label>
 				<div class="invalid-feedback" data-sb-feedback="author:required">An author is required.</div>
 			</div>
 			<div class="form-floating">
-				<textarea class="form-control" id="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required"></textarea>
+				<textarea class="form-control" id="content" name="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required"></textarea>
 				<label for="content">Contenu</label>
 				<div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
 			</div>

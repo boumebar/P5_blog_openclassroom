@@ -4,6 +4,7 @@
 namespace App\Controllers;
 
 use App\Models\Post;
+use Exception;
 
 class AdminController extends Controller
 {
@@ -20,34 +21,40 @@ class AdminController extends Controller
     public function delete($id)
     {
         $post = new Post($this->db);
-        $result = $post->delete($id);
-
-        if ($result) {
-            return header('Location: ' . BASE . "/admin");
-        }
+        $post->delete($id);
+        return header('Location: ' . BASE . "/admin" . "?delete=1");
     }
 
 
     public function update($id)
     {
         if (!empty($_POST)) {
-            dump($_POST);
-            echo 'je suis l\'article' . $id;
+            $post = (new Post($this->db));
+            $post->getId($id);
+            $post->setTitle($_POST['title']);
+            $post->update($post);
         } else {
-
             $post = (new Post($this->db))->findById($id);
-            $this->render('admin/blog/update', ['post' => $post]);
+            if ($post == null) {
+                throw new Exception("Cet article n'existe pas");
+            } else {
+                $this->render('admin/blog/update', ['post' => $post]);
+            }
         }
     }
 
     public function add()
     {
-        $this->render('admin/blog/create');
-    }
-
-
-    public function create()
-    {
-        return header('Location: ' . BASE . "/admin");
+        if (!empty($_POST)) {
+            $post = (new Post($this->db));
+            $post->setTitle($_POST['title']);
+            $post->setChapo($_POST['chapo']);
+            $post->setAuthor($_POST['author']);
+            $post->setContent($_POST['content']);
+            $post->create($post);
+            return header('Location: ' . BASE . "/admin" . "?add=1");
+        } else {
+            $this->render('admin/blog/create');
+        }
     }
 }

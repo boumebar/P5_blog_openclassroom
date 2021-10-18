@@ -20,17 +20,7 @@ class User extends Model
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
 
-        return $this;
-    }
 
     /**
      * Get the value of username

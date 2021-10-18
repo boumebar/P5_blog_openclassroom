@@ -38,18 +38,6 @@ class Comment extends Model
     }
 
     /**
-     * Set the value of id
-     *
-     * @return  self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get the value of author
      */
     public function getAuthor()
