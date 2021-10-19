@@ -18,7 +18,7 @@ class CommentController extends Controller
             $comment
                 ->setAuthor($_POST['author'])
                 ->setContent($_POST['content'])
-            dd($comment);
+                ->setPostId($_POST['postId']);
             $commentRepo->create($comment);
             return header('Location: ' . BASE . "/post/{$_POST['postId']}" . "?add=1");
         } else {

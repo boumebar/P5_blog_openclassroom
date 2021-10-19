@@ -32,7 +32,7 @@ class CommentRepository extends BaseRepository
         $query->execute([
             "author"    => $comment->getAuthor(),
             "content"   => $comment->getContent(),
-            "postId"    => $comment->getId()
+            "postId"    => $comment->getPostId()
         ]);
     }
 }

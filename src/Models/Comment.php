@@ -15,21 +15,8 @@ class Comment extends Model
     private $author;
     private $content;
     private $createdAt;
+    private $postId;
 
-
-    // public function findByPostID($postId): array
-    // {
-
-    //     $pdo = $this->db->getPDO();
-
-    //     $query = $pdo->prepare('SELECT * FROM comment WHERE postId=:postId ORDER BY createdAt DESC');
-
-    //     $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
-
-    //     $query->execute(['postId' => $postId]);
-
-    //     return $query->fetchAll();
-    // }
 
     /**
      * Get the value of id
@@ -108,6 +95,26 @@ class Comment extends Model
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of postId
+     */
+    public function getPostId()
+    {
+        return $this->postId;
+    }
+
+    /**
+     * Set the value of postId
+     *
+     * @return  self
+     */
+    public function setPostId($postId)
+    {
+        $this->postId = $postId;
 
         return $this;
     }
