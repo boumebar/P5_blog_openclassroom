@@ -43,7 +43,7 @@ class Post extends Model
      */
     public function setTitle($title)
     {
-        $this->title = htmlspecialchars($title);
+        $this->title = htmlentities($title);
 
         return $this;
     }
@@ -64,7 +64,7 @@ class Post extends Model
      */
     public function setContent($content)
     {
-        $this->content = htmlspecialchars($content);
+        $this->content = htmlentities($content);
 
         return $this;
     }
@@ -104,7 +104,7 @@ class Post extends Model
      */
     public function setAuthor($author)
     {
-        $this->author = htmlspecialchars($author);
+        $this->author = htmlentities($author);
 
         return $this;
     }
@@ -124,7 +124,7 @@ class Post extends Model
      */
     public function setChapo($chapo)
     {
-        $this->chapo = htmlspecialchars($chapo);
+        $this->chapo = htmlentities($chapo);
 
         return $this;
     }

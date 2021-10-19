@@ -13,6 +13,11 @@
 {% endblock %}
 
 {% block content %}
+	{% if _get.add %}
+		<div class="alert alert-success">
+			Votre commentaire est en attente de validation
+		</div>
+	{% endif %}
 	<h2 class="mt-5">{{ post.getTitle}}</h2>
 	<p class="text-muted">Par
 		{{ post.getAuthor}}
@@ -43,7 +48,7 @@
 			{% endfor %}
 
 
-			<form class="form-block" action="#" method="post">
+			<form class="form-block" action="{{constant('BASE')}}/comment/add" method="post">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
@@ -52,14 +57,10 @@
 					</div>
 					<div class="col-xs-12">
 						<div class="form-group">
-							<input class="form-input" name="email" type="email" placeholder="Email">
+							<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
 						</div>
 					</div>
-					<div class="col-xs-12">
-						<div class="form-group">
-							<textarea name="comment" class="form-input" required="" placeholder="Votre commentaire"></textarea>
-						</div>
-					</div>
+					<input type="hidden" name="postId" value="{{post.getId}}"/>
 					<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
 				</div>
 			</form>

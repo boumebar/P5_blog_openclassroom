@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block image %}
-	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/administration2.jpg'}}) "
 {% endblock %}
 
 {% block title %}
@@ -18,10 +18,13 @@
 		<div class="alert alert-success">
 			Votre article a bien été supprimé
 		</div>
-	{% endif %}
-	{% if _get.add %}
+	{% elseif _get.add %}
 		<div class="alert alert-success">
 			Votre article a bien été ajouté
+		</div>
+	{% elseif _get.update %}
+		<div class="alert alert-success">
+			Votre article a bien été modifié
 		</div>
 	{% endif %}
 

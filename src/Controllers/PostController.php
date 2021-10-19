@@ -5,6 +5,8 @@ namespace App\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Repositories\CommentRepository;
+use App\Repositories\PostRepository;
 use Exception;
 
 class PostController extends Controller
@@ -17,19 +19,15 @@ class PostController extends Controller
 
     public function showAll()
     {
-        $posts = (new Post($this->db))->all();
+        $posts = (new PostRepository($this->db))->all();
 
         $this->render('blog/index', ['posts' => $posts]);
     }
 
     public function show(int $id)
     {
-
-        $post = (new Post($this->db))->findById($id);
-        $comments = (new Comment($this->db))->findByPostID($id);
-        if ($post) {
-            $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
-        } else
-            throw new Exception("L'article avec l'id $id n'existe pas ");
+        $post = (new PostRepository($this->db))->findById($id);
+        $comments = (new CommentRepository($this->db))->findByPostID($id);
+        $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
     }
 }

@@ -9,25 +9,27 @@ use PDO;
 class Comment extends Model
 {
 
+    protected $table = "comment";
+
     private $id;
     private $author;
     private $content;
     private $createdAt;
 
 
-    public function findByPostID($post_id): array
-    {
+    // public function findByPostID($postId): array
+    // {
 
-        $pdo = $this->db->getPDO();
+    //     $pdo = $this->db->getPDO();
 
-        $query = $pdo->prepare('SELECT * FROM comment WHERE post_id=:post_id ORDER BY createdAt DESC');
+    //     $query = $pdo->prepare('SELECT * FROM comment WHERE postId=:postId ORDER BY createdAt DESC');
 
-        $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
+    //     $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
 
-        $query->execute(['post_id' => $post_id]);
+    //     $query->execute(['postId' => $postId]);
 
-        return $query->fetchAll();
-    }
+    //     return $query->fetchAll();
+    // }
 
     /**
      * Get the value of id
@@ -35,6 +37,19 @@ class Comment extends Model
     public function getId()
     {
         return $this->id;
+    }
+
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -52,7 +67,7 @@ class Comment extends Model
      */
     public function setAuthor($author)
     {
-        $this->author = $author;
+        $this->author = htmlentities($author);
 
         return $this;
     }
@@ -72,7 +87,7 @@ class Comment extends Model
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->content = nl2br(htmlentities($content));
 
         return $this;
     }

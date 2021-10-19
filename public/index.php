@@ -32,8 +32,11 @@ $router->post('/admin/update/:id', 'App\Controllers\AdminController@update');
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
-$router->get('admin/add', 'App\Controllers\Admincontroller@add');
-$router->post('admin/add', 'App\Controllers\Admincontroller@add');
+$router->get('admin/add', 'App\Controllers\AdminController@create');
+$router->post('admin/add', 'App\Controllers\AdminController@create');
+
+
+$router->post('comment/add', 'App\Controllers\CommentController@create');
 
 
 try {
