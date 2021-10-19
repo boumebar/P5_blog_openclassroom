@@ -32,11 +32,15 @@ $router->post('/admin/update/:id', 'App\Controllers\AdminController@update');
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
-$router->get('admin/add', 'App\Controllers\AdminController@create');
-$router->post('admin/add', 'App\Controllers\AdminController@create');
+$router->get('/admin/add', 'App\Controllers\AdminController@create');
+$router->post('/admin/add', 'App\Controllers\AdminController@create');
 
+// add Comment
+$router->post('/comment/add', 'App\Controllers\CommentController@create');
 
-$router->post('comment/add', 'App\Controllers\CommentController@create');
+// login
+$router->get('/login', 'App\Controllers\AuthController@index');
+$router->post('/login', 'App\Controllers\AuthController@index');
 
 
 try {

@@ -27,7 +27,7 @@ class PostController extends Controller
     public function show(int $id)
     {
         $post = (new PostRepository($this->db))->findById($id);
-        $comments = (new CommentRepository($this->db))->findByPostID($id);
+        $comments = (new CommentRepository($this->db))->findValidatedByPostID($id);
         $this->render('blog/show', ['post' => $post, 'comments' => $comments]);
     }
 }

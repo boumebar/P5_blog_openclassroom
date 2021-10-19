@@ -16,6 +16,7 @@ class Comment extends Model
     private $content;
     private $createdAt;
     private $postId;
+    private $validated;
 
 
     /**
@@ -115,6 +116,26 @@ class Comment extends Model
     public function setPostId($postId)
     {
         $this->postId = $postId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of validated
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+    /**
+     * Set the value of validated
+     *
+     * @return  self
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
 
         return $this;
     }

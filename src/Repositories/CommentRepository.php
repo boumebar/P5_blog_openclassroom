@@ -11,12 +11,12 @@ class CommentRepository extends BaseRepository
 
 
 
-    public function findByPostID($postId): array
+    public function findValidatedByPostID($postId): array
     {
 
         $pdo = $this->db->getPDO();
 
-        $query = $pdo->prepare('SELECT * FROM comment WHERE postId=:postId ORDER BY createdAt DESC');
+        $query = $pdo->prepare('SELECT * FROM comment WHERE postId=:postId AND validated = 1 ORDER BY createdAt DESC');
 
         $query->setFetchMode(PDO::FETCH_CLASS, Comment::class, [$this->db]);
 
@@ -24,6 +24,8 @@ class CommentRepository extends BaseRepository
 
         return $query->fetchAll();
     }
+
+
 
     public function create(Comment $comment): void
     {

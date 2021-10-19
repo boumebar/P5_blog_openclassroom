@@ -37,7 +37,7 @@ class User extends Model
      */
     public function setUsername($username)
     {
-        $this->username = $username;
+        $this->username = htmlentities($username);
 
         return $this;
     }
