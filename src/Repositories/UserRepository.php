@@ -11,7 +11,7 @@ class UserRepository extends BaseRepository
 {
 
 
-    public function findByUsername(string $username): Object
+    public function findByUsername(string $username): User
     {
         $pdo = $this->db->getPDO();
         $query = $pdo->prepare("SELECT * FROM user WHERE username = :username ");

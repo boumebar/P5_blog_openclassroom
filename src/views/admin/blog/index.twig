@@ -22,6 +22,10 @@
 		<div class="alert alert-success">
 			Votre article a bien été ajouté
 		</div>
+	{% elseif _get.success %}
+		<div class="alert alert-success">
+			Vous etes connecté
+		</div>
 	{% elseif _get.update %}
 		<div class="alert alert-success">
 			Votre article a bien été modifié

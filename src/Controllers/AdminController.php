@@ -12,7 +12,7 @@ class AdminController extends Controller
 
     public function index()
     {
-
+        $this->isAdmin();
         $posts = (new PostRepository($this->db))->all();
 
         $this->render('admin/blog/index', ['posts' => $posts]);
@@ -20,14 +20,16 @@ class AdminController extends Controller
 
     public function delete(int $id)
     {
+        $this->isAdmin();
         $post = new PostRepository($this->db);
         $post->delete($id);
-        return header('Location: ' . BASE . "/admin" . "?delete=1");
+        $this->redirect('admin?delete=1');
     }
 
 
     public function update(int $id)
     {
+        $this->isAdmin();
         $post = (new PostRepository($this->db))->findById($id);
         if (!empty($_POST)) {
             $postRepo = (new PostRepository($this->db));
@@ -37,7 +39,7 @@ class AdminController extends Controller
                 ->setAuthor($_POST['author'])
                 ->setContent($_POST['content']);
             $postRepo->update($post);
-            return header('Location: ' . BASE . "/admin" . "?update=1");
+            $this->redirect('admin?update=1');
         } else {
             $this->render('admin/blog/update', ['post' => $post]);
         }
@@ -45,6 +47,7 @@ class AdminController extends Controller
 
     public function create()
     {
+        $this->isAdmin();
         if (!empty($_POST)) {
             $post = new Post($this->db);
             $postRepo = (new PostRepository($this->db));
@@ -54,7 +57,7 @@ class AdminController extends Controller
                 ->setChapo($_POST['chapo'])
                 ->setContent($_POST['content']);
             $postRepo->create($post);
-            return header('Location: ' . BASE . "/admin" . "?add=1");
+            $this->redirect('admin?add=1');
         } else {
             $this->render('admin/blog/create');
         }

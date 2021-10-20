@@ -20,9 +20,9 @@ class CommentController extends Controller
                 ->setContent($_POST['content'])
                 ->setPostId($_POST['postId']);
             $commentRepo->create($comment);
-            return header('Location: ' . BASE . "/post/{$_POST['postId']}" . "?add=1");
+            $this->redirect("post/{$_POST['postId']}?add=1");
         } else {
-            return header('Location: ' . BASE . "/posts");
+            $this->redirect("posts");
         }
     }
 }

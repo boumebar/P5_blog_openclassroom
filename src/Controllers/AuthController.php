@@ -9,7 +9,9 @@ use Exception;
 
 class AuthController extends Controller
 {
-    public function index()
+
+
+    public function login()
     {
 
         $user = new User($this->db);
@@ -20,14 +22,21 @@ class AuthController extends Controller
                 try {
                     $userBDD = $userRepo->findByUsername($_POST['username']);
                     if (password_verify($_POST['password'], $userBDD->getPassword()) == true) {
-                        header('Location: ' . BASE . "/admin");
+                        $_SESSION['auth'] = (int)$userBDD->getIsAdmin();
+                        $this->redirect('admin?success=1');
                     }
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
             } else
-                $this->render('auth/login');
+                $this->redirect('login?error=1');
         } else
             $this->render('auth/login');
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        $this->redirect('index');
     }
 }

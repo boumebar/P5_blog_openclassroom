@@ -39,9 +39,11 @@ $router->post('/admin/add', 'App\Controllers\AdminController@create');
 $router->post('/comment/add', 'App\Controllers\CommentController@create');
 
 // login
-$router->get('/login', 'App\Controllers\AuthController@index');
-$router->post('/login', 'App\Controllers\AuthController@index');
+$router->get('/login', 'App\Controllers\AuthController@login');
+$router->post('/login', 'App\Controllers\AuthController@login');
 
+// logout
+$router->get('/logout', 'App\Controllers\AuthController@logout');
 
 try {
     $router->run();

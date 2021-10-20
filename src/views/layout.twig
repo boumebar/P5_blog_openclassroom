@@ -42,6 +42,15 @@
 						<li class="nav-item">
 							<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{constant('BASE')}}/admin">Admin</a>
 						</li>
+						{% if _session['auth'] == 1 %}
+							<li class="nav-item">
+								<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{constant('BASE')}}/logout">Se déconnecter</a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{constant('BASE')}}/login">Se connecter</a>
+							</li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
