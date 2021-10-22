@@ -38,7 +38,7 @@ abstract class Controller
 
     public function redirect(string $page)
     {
-        header('Location: ' . BASE . '/' . $page);
+        header('Location: ' . ROOT . '/' . $page);
         exit();
     }
 

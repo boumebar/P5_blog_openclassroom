@@ -3,11 +3,8 @@
 
 namespace App\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
 use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
-use Exception;
 
 class PostController extends Controller
 {

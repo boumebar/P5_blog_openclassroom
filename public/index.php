@@ -7,7 +7,8 @@ use App\Router\Router;
 use App\Router\RouterException;
 
 define('SCRIPT', dirname($_SERVER['SCRIPT_NAME']));
-define('BASE', (dirname(dirname($_SERVER['SCRIPT_NAME']))));
+define('ROOT', dirname(dirname($_SERVER['SCRIPT_NAME'])));
+
 
 define('DEBUG_TIME', microtime(true));
 
@@ -15,6 +16,7 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+// dd($_GET);
 $router = new Router($_GET['url']);
 
 
@@ -37,6 +39,12 @@ $router->post('/admin/add', 'App\Controllers\AdminController@create');
 
 // add Comment
 $router->post('/comment/add', 'App\Controllers\CommentController@create');
+
+
+// register
+$router->get('/register', 'App\Controllers\AuthController@register');
+$router->post('/register', 'App\Controllers\AuthController@register');
+
 
 // login
 $router->get('/login', 'App\Controllers\AuthController@login');

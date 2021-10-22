@@ -14,7 +14,13 @@
 
 
 {% block content %}
-	<form method="post" action="{{constant('BASE')}}/login" id="contactForm" novalidate>
+	{% if _get.register %}
+		<div class="alert alert-success">
+			Vous êtes bien inscrit , veuillez vous connecté
+		</div>
+	{% endif %}
+
+	<form method="post" action="{{constant('ROOT')}}/login" id="contactForm" novalidate>
 		<div class="control-group">
 			<div class="form-group floating-label-form-group controls">
 				<label for="username">Nom d'utilisateur</label>

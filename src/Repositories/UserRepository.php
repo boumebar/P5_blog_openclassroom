@@ -22,4 +22,16 @@ class UserRepository extends BaseRepository
         else
             return $query->fetch();
     }
+
+    public function create(User $user): void
+    {
+
+        $pdo = $this->db->getPDO();
+        $query = $pdo->prepare("INSERT INTO user (username,email,password) VALUES (:username, :email, :password)");
+        $query->execute([
+            "username"     => $user->getUsername(),
+            "email"    => $user->getEmail(),
+            "password"     => $user->getPassword(),
+        ]);
+    }
 }

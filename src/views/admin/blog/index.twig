@@ -33,7 +33,7 @@
 	{% endif %}
 
 
-	<a href="{{constant('BASE')}}/admin/add" class="btn btn-primary">Ajout d'un article</a>
+	<a href="{{constant('ROOT')}}/admin/add" class="btn btn-primary">Ajout d'un article</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -48,8 +48,8 @@
 					<td>{{ post.getId }}</td>
 					<td scope="row">{{ post.getTitle}}</td>
 					<td class="text-end">
-						<a href="{{constant('BASE')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
-						<form method="post" action="{{constant('BASE')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
+						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>
