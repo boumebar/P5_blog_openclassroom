@@ -47,23 +47,30 @@
 				</div>
 			{% endfor %}
 
-
-			<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<input class="form-input" name="author" type="text" placeholder="Nom">
+			{% if _session %}
+				<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<input class="form-input" name="author" type="text" placeholder="Nom">
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-12">
-						<div class="form-group">
-							<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
+						<div class="col-xs-12">
+							<div class="form-group">
+								<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
+							</div>
 						</div>
+						<input type="hidden" name="postId" value="{{post.getId}}"/>
+						<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
 					</div>
-					<input type="hidden" name="postId" value="{{post.getId}}"/>
-					<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
+				</form>
+			{% else %}
+				<div class="mt-5 text-center">
+					<p class="d-inline">Vous devez être connecté pour laisser un commentaire
+					</p>
+					<a href="{{constant('ROOT')}}/login" class="d-inline text-primary">Connectez-vous</a>
 				</div>
-			</form>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

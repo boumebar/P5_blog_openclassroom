@@ -9,7 +9,8 @@ use App\Models\Comment;
 class CommentRepository extends BaseRepository
 {
 
-
+    protected $table = "comment";
+    protected $class = Comment::class;
 
     public function findValidatedByPostID($postId): array
     {
@@ -25,6 +26,17 @@ class CommentRepository extends BaseRepository
         return $query->fetchAll();
     }
 
+    public function allNotValidated()
+    {
+        $pdo = $this->db->getPDO();
+        $query = $pdo->query("SELECT p.author as postAuthor,p.title,c.author,c.id,c.content 
+                              FROM `comment` AS c 
+                              JOIN post as p ON c.postId = p.id 
+                              WHERE NOT c.validated 
+                              ORDER BY `c`.`id` ASC");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        return $query->fetchAll();
+    }
 
 
     public function create(Comment $comment): void

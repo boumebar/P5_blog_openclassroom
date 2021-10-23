@@ -1,0 +1,49 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Commentaires</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Liste des commentaires</h1>
+{% endblock %}
+
+{% block content %}
+	{% if _get.delete %}
+		<div class="alert alert-success">
+			Le commentaire a bien été supprimé
+		</div>
+	{% endif %}
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Titre de l'article</th>
+				<th scope="col">Nom du commentateur</th>
+				<th scope="col">Aperçu du commentaire</th>
+				<th scope="col" class="text-end px-5">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for comment in comments %}
+				<tr>
+					<th scope="row">{{ comment.id }}</th>
+					<td>{{ comment.title }}</td>
+					<td>{{ comment.postAuthor }}</td>
+					<td>{{ comment.content }}</td>
+					<td class="text-end">
+						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-success">Valider</a>
+						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+							<button class="btn btn-danger">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

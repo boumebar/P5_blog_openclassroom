@@ -55,7 +55,7 @@ class Comment extends Model
      */
     public function setAuthor($author)
     {
-        $this->author = htmlentities($author);
+        $this->author = htmlspecialchars($author);
 
         return $this;
     }
@@ -75,7 +75,7 @@ class Comment extends Model
      */
     public function setContent($content)
     {
-        $this->content = nl2br(htmlentities($content));
+        $this->content = htmlspecialchars($content);
 
         return $this;
     }

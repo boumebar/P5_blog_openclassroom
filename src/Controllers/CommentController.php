@@ -9,6 +9,12 @@ use App\Models\Comment;
 class CommentController extends Controller
 {
 
+    public function index()
+    {
+        $comments = (new CommentRepository($this->db))->allNotValidated();
+        $this->render('admin/comments/index', ['comments' => $comments]);
+    }
+
     public function create()
     {
 
@@ -24,5 +30,13 @@ class CommentController extends Controller
         } else {
             $this->redirect("posts");
         }
+    }
+
+    public function delete($id)
+    {
+        $this->isAdmin();
+        $comment = new CommentRepository($this->db);
+        $comment->delete($id);
+        $this->redirect('comments?delete=1');
     }
 }

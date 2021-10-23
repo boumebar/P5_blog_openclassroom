@@ -29,7 +29,7 @@ class AuthController extends Controller
                             $this->redirect('admin?success=1');
                         } else {
                             $_SESSION['email'] = $userBDD->getEmail();
-                            $this->redirect('posts');
+                            $this->redirect('posts?success=1');
                         }
                     }
                 } catch (Exception $e) {
@@ -62,6 +62,6 @@ class AuthController extends Controller
             $userRepo->create($user);
             $this->redirect('login?register=1');
         } else
-            $this->render('register');
+            $this->render('auth/register');
     }
 }

@@ -40,6 +40,11 @@ $router->post('/admin/add', 'App\Controllers\AdminController@create');
 // add Comment
 $router->post('/comment/add', 'App\Controllers\CommentController@create');
 
+$router->get('/comments', 'App\Controllers\CommentController@index');
+
+//delete Comment
+$router->post('/comment/delete/:id', 'App\Controllers\CommentController@delete');
+
 
 // register
 $router->get('/register', 'App\Controllers\AuthController@register');

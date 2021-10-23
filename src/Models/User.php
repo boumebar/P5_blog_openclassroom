@@ -39,7 +39,7 @@ class User extends Model
      */
     public function setUsername($username)
     {
-        $this->username = htmlentities($username);
+        $this->username = htmlspecialchars($username);
 
         return $this;
     }
@@ -99,7 +99,7 @@ class User extends Model
      */
     public function setEmail($email)
     {
-        $this->email = htmlentities($email);
+        $this->email = htmlspecialchars($email);
 
         return $this;
     }
