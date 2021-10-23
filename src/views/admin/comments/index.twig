@@ -17,8 +17,11 @@
 		<div class="alert alert-success">
 			Le commentaire a bien été supprimé
 		</div>
+	{% elseif _get.validate %}
+		<div class="alert alert-success">
+			Le commentaire a bien été validé
+		</div>
 	{% endif %}
-
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -37,7 +40,9 @@
 					<td>{{ comment.postAuthor }}</td>
 					<td>{{ comment.content }}</td>
 					<td class="text-end">
-						<a href="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="btn btn-success">Valider</a>
+						<form method="post" action="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir valider ce commentaire ?')">
+							<button class="btn btn-success">Valider</button>
+						</form>
 						<form method="post" action="{{constant('ROOT')}}/comment/delete/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer ce commentaire ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>

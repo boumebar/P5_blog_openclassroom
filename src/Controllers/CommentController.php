@@ -42,4 +42,12 @@ class CommentController extends Controller
         $comment->delete($id);
         $this->redirect('comments?delete=1');
     }
+
+    public function validate($id)
+    {
+        $this->isAdmin();
+        $comment = new CommentRepository($this->db);
+        $comment->validate($id);
+        $this->redirect('comments?validate=1');
+    }
 }

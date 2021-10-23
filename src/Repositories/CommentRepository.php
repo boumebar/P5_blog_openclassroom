@@ -33,7 +33,7 @@ class CommentRepository extends BaseRepository
                               FROM `comment` AS c 
                               JOIN post as p ON c.postId = p.id 
                               WHERE NOT c.validated 
-                              ORDER BY `c`.`id` ASC");
+                              ORDER BY `c`.`id` desc");
         $query->setFetchMode(PDO::FETCH_ASSOC);
         return $query->fetchAll();
     }
@@ -47,6 +47,15 @@ class CommentRepository extends BaseRepository
             "author"    => $comment->getAuthor(),
             "content"   => $comment->getContent(),
             "postId"    => $comment->getPostId()
+        ]);
+    }
+
+    public function validate($id)
+    {
+        $pdo = $this->db->getPDO();
+        $query = $pdo->prepare("UPDATE $this->table SET validated = 1 WHERE id = :id");
+        $query->execute([
+            "id"        => $id,
         ]);
     }
 }
