@@ -9,7 +9,9 @@ class User extends Model
 
     private $id;
     private $username;
+    private $email;
     private $password;
+    private $isAdmin;
 
 
     /**
@@ -37,7 +39,7 @@ class User extends Model
      */
     public function setUsername($username)
     {
-        $this->username = $username;
+        $this->username = htmlspecialchars($username);
 
         return $this;
     }
@@ -57,7 +59,47 @@ class User extends Model
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isAdmin
+     */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * Set the value of isAdmin
+     *
+     * @return  self
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @return  self
+     */
+    public function setEmail($email)
+    {
+        $this->email = htmlspecialchars($email);
 
         return $this;
     }

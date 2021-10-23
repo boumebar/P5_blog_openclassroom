@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block image %}
-	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/post-bg.jpg'}}) "
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/administration2.jpg'}}) "
 {% endblock %}
 
 {% block title %}
@@ -18,15 +18,22 @@
 		<div class="alert alert-success">
 			Votre article a bien été supprimé
 		</div>
-	{% endif %}
-	{% if _get.add %}
+	{% elseif _get.add %}
 		<div class="alert alert-success">
 			Votre article a bien été ajouté
+		</div>
+	{% elseif _get.success %}
+		<div class="alert alert-success">
+			Vous etes connecté
+		</div>
+	{% elseif _get.update %}
+		<div class="alert alert-success">
+			Votre article a bien été modifié
 		</div>
 	{% endif %}
 
 
-	<a href="{{constant('BASE')}}/admin/add" class="btn btn-primary">Ajout d'un article</a>
+	<a href="{{constant('ROOT')}}/admin/add" class="btn btn-primary">Ajout d'un article</a>
 	<table class="table">
 		<thead>
 			<tr>
@@ -41,8 +48,8 @@
 					<td>{{ post.getId }}</td>
 					<td scope="row">{{ post.getTitle}}</td>
 					<td class="text-end">
-						<a href="{{constant('BASE')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
-						<form method="post" action="{{constant('BASE')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
+						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>

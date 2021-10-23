@@ -9,25 +9,15 @@ use PDO;
 class Comment extends Model
 {
 
+    protected $table = "comment";
+
     private $id;
     private $author;
     private $content;
     private $createdAt;
+    private $postId;
+    private $validated;
 
-
-    public function findByPostID($post_id): array
-    {
-
-        $pdo = $this->db->getPDO();
-
-        $query = $pdo->prepare('SELECT * FROM comment WHERE post_id=:post_id ORDER BY createdAt DESC');
-
-        $query->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
-
-        $query->execute(['post_id' => $post_id]);
-
-        return $query->fetchAll();
-    }
 
     /**
      * Get the value of id
@@ -35,6 +25,19 @@ class Comment extends Model
     public function getId()
     {
         return $this->id;
+    }
+
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -52,7 +55,7 @@ class Comment extends Model
      */
     public function setAuthor($author)
     {
-        $this->author = $author;
+        $this->author = htmlspecialchars($author);
 
         return $this;
     }
@@ -72,7 +75,7 @@ class Comment extends Model
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->content = htmlspecialchars($content);
 
         return $this;
     }
@@ -93,6 +96,46 @@ class Comment extends Model
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of postId
+     */
+    public function getPostId()
+    {
+        return $this->postId;
+    }
+
+    /**
+     * Set the value of postId
+     *
+     * @return  self
+     */
+    public function setPostId($postId)
+    {
+        $this->postId = $postId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of validated
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+    /**
+     * Set the value of validated
+     *
+     * @return  self
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
 
         return $this;
     }

@@ -7,7 +7,8 @@ use App\Router\Router;
 use App\Router\RouterException;
 
 define('SCRIPT', dirname($_SERVER['SCRIPT_NAME']));
-define('BASE', (dirname(dirname($_SERVER['SCRIPT_NAME']))));
+define('ROOT', dirname(dirname($_SERVER['SCRIPT_NAME'])));
+
 
 define('DEBUG_TIME', microtime(true));
 
@@ -15,6 +16,7 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+// dd($_GET);
 $router = new Router($_GET['url']);
 
 
@@ -32,12 +34,29 @@ $router->post('/admin/update/:id', 'App\Controllers\AdminController@update');
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
-$router->get('admin/add', 'App\Controllers\AdminController@add');
-$router->post('admin/add', 'App\Controllers\AdminController@add');
+$router->get('/admin/add', 'App\Controllers\AdminController@create');
+$router->post('/admin/add', 'App\Controllers\AdminController@create');
 
-// add comment
-$router->post('comment/add', 'App\Controllers\CommentController@add');
+// add Comment
+$router->post('/comment/add', 'App\Controllers\CommentController@create');
 
+$router->get('/comments', 'App\Controllers\CommentController@index');
+
+//delete Comment
+$router->post('/comment/delete/:id', 'App\Controllers\CommentController@delete');
+
+
+// register
+$router->get('/register', 'App\Controllers\AuthController@register');
+$router->post('/register', 'App\Controllers\AuthController@register');
+
+
+// login
+$router->get('/login', 'App\Controllers\AuthController@login');
+$router->post('/login', 'App\Controllers\AuthController@login');
+
+// logout
+$router->get('/logout', 'App\Controllers\AuthController@logout');
 
 try {
     $router->run();
