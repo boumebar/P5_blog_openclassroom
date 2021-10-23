@@ -37,8 +37,8 @@
 					<td>{{ comment.postAuthor }}</td>
 					<td>{{ comment.content }}</td>
 					<td class="text-end">
-						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-success">Valider</a>
-						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+						<a href="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="btn btn-success">Valider</a>
+						<form method="post" action="{{constant('ROOT')}}/comment/delete/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer ce commentaire ?')">
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>

@@ -50,4 +50,12 @@ abstract class Controller
         } else
             $this->redirect('login');
     }
+
+    public function isLogged()
+    {
+        if (!empty($_SESSION)) {
+            return true;
+        } else
+            $this->redirect('login');
+    }
 }

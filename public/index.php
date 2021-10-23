@@ -45,6 +45,8 @@ $router->get('/comments', 'App\Controllers\CommentController@index');
 //delete Comment
 $router->post('/comment/delete/:id', 'App\Controllers\CommentController@delete');
 
+//validate Comment
+$router->post('/comment/validate/:id', 'App\Controllers\CommentController@validate');
 
 // register
 $router->get('/register', 'App\Controllers\AuthController@register');

@@ -12,6 +12,7 @@ class CommentController extends Controller
 
     public function index()
     {
+        $this->isAdmin();
         $comments = (new CommentRepository($this->db))->allNotValidated();
         $this->render('admin/comments/index', ['comments' => $comments]);
     }
@@ -19,6 +20,7 @@ class CommentController extends Controller
     public function create()
     {
 
+        $this->isLogged();
         if (!empty($_POST)) {
             $commentRepo = new CommentRepository($this->db);
             $comment = (new Comment($this->db));
