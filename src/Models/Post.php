@@ -12,8 +12,9 @@ class Post extends Model
 
 
     private $id;
-    private $name;
-    private $slug;
+    private $title;
+    private $author;
+    private $chapo;
     private $content;
     private $createdAt;
 
@@ -26,57 +27,27 @@ class Post extends Model
         return $this->id;
     }
 
+
     /**
-     * Set the value of id
+     * Get the value of title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
      *
      * @return  self
      */
-    public function setId($id)
+    public function setTitle($title)
     {
-        $this->id = $id;
+        $this->title = htmlspecialchars($title);
 
         return $this;
     }
 
-    /**
-     * Get the value of name
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of slug
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set the value of slug
-     *
-     * @return  self
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 
     /**
      * Get the value of content
@@ -93,7 +64,7 @@ class Post extends Model
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->content = htmlspecialchars($content);
 
         return $this;
     }
@@ -114,6 +85,46 @@ class Post extends Model
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set the value of author
+     *
+     * @return  self
+     */
+    public function setAuthor($author)
+    {
+        $this->author = htmlspecialchars($author);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chapo
+     */
+    public function getChapo()
+    {
+        return $this->chapo;
+    }
+
+    /**
+     * Set the value of chapo
+     *
+     * @return  self
+     */
+    public function setChapo($chapo)
+    {
+        $this->chapo = htmlspecialchars($chapo);
 
         return $this;
     }

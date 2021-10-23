@@ -13,9 +13,18 @@
 {% endblock %}
 
 {% block content %}
-	<h2 class="mt-5">{{ post.name}}</h2>
-	<p class="text-muted">{{ post.created_at|date("d F Y")}}</p>
-	<p>{{ post.content}}</p>
+	{% if _get.add %}
+		<div class="alert alert-success">
+			Votre commentaire est en attente de validation
+		</div>
+	{% endif %}
+	<h2 class="mt-5">{{ post.getTitle}}</h2>
+	<p class="text-muted">Par
+		{{ post.getAuthor}}
+		le
+		{{ post.getCreatedAt}}</p>
+	<h3 class="text-center">{{ post.getChapo}}</h3>
+	<p>{{ post.getContent}}</p>
 
 
 	<div class="container">
@@ -26,39 +35,42 @@
 				<div class="be-comment">
 					<div class="be-comment-content">
 						<span class="be-comment-name">
-							<a href="blog-detail-2.html">{{ comment.author}}</a>
+							<a href="blog-detail-2.html">{{ comment.getAuthor}}</a>
 						</span>
 						<span class="be-comment-time">
 							<i class="fa fa-clock-o"></i>
-							{{ comment.created_at}}
+							{{ comment.getCreatedAt}}
 						</span>
 
-						<p class="be-comment-text">{{ comment.content}}</p>
+						<p class="be-comment-text">{{ comment.getContent}}</p>
 					</div>
 				</div>
 			{% endfor %}
 
-
-			<form class="form-block" action="#" method="post">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="form-group">
-							<input class="form-input" name="author" type="text" placeholder="Nom">
+			{% if _session %}
+				<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<input class="form-input" name="author" type="text" placeholder="Nom">
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-12">
-						<div class="form-group">
-							<input class="form-input" name="email" type="email" placeholder="Email">
+						<div class="col-xs-12">
+							<div class="form-group">
+								<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
+							</div>
 						</div>
+						<input type="hidden" name="postId" value="{{post.getId}}"/>
+						<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
 					</div>
-					<div class="col-xs-12">
-						<div class="form-group">
-							<textarea name="comment" class="form-input" required="" placeholder="Votre commentaire"></textarea>
-						</div>
-					</div>
-					<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
+				</form>
+			{% else %}
+				<div class="mt-5 text-center">
+					<p class="d-inline">Vous devez être connecté pour laisser un commentaire
+					</p>
+					<a href="{{constant('ROOT')}}/login" class="d-inline text-primary">Connectez-vous</a>
 				</div>
-			</form>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}
