@@ -6,7 +6,7 @@
     ],
     "content-hash": "e8ef554e3737fc0e4898c6c71a7d751e",
     "packages": [
-        {
+        { 
             "name": "filp/whoops",
             "version": "2.14.3",
             "source": {
