@@ -20,17 +20,18 @@ class AuthController extends Controller
         if (!empty($_POST)) {
             $user->setUsername($_POST['username']);
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
-                $userRepo = new UserRepository($this->db);
                 try {
-                    $userBDD = $userRepo->findByUsername($_POST['username']);
-                    if (password_verify($_POST['password'], $userBDD->getPassword()) == true) {
-                        if ($userBDD->getIsAdmin()) {
-                            $_SESSION['auth'] = (int)$userBDD->getIsAdmin();
+                    $userRepo = (new UserRepository($this->db))->findByUsername($_POST['username']);
+                    if (password_verify($_POST['password'], $userRepo->getPassword()) == true) {
+                        if ($userRepo->getIsAdmin()) {
+                            $_SESSION['auth'] = (int)$userRepo->getIsAdmin();
                             $this->redirect('admin?success=1');
                         } else {
-                            $_SESSION['email'] = $userBDD->getEmail();
+                            $_SESSION['email'] = $userRepo->getEmail();
                             $this->redirect('posts?success=1');
                         }
+                    } else {
+                        throw new Exception('faux compte');
                     }
                 } catch (Exception $e) {
                     echo $e->getMessage();
@@ -44,7 +45,8 @@ class AuthController extends Controller
     public function logout()
     {
         session_destroy();
-        $this->redirect('index');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
     }
 
     public function register()

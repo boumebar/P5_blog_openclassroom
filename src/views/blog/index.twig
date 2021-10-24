@@ -1,4 +1,4 @@
-{% extends "layout.twig" %}
+{% extends "layouts/layout.twig" %}
 
 {% block head  %}
 	<title>Les articles</title>
@@ -29,7 +29,7 @@
 							{{ post.getCreatedAt}}</small>
 						<p>{{ post.getChapo }}</p>
 						<p>
-							<a href="{{constant('ROOT')}}/post/{{ post.getId }}" class="btn btn-primary">Voir plus</a>
+							<a href="{{constant('ROOT')}}/post/{{ post.getId }}" class="btn btn-primary d-flex justify-content-center">Voir plus</a>
 						</p>
 					</div>
 				</div>

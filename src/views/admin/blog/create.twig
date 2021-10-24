@@ -1,4 +1,4 @@
-{% extends "layout.twig" %}
+{% extends "layouts/admin.twig" %}
 
 {% block head  %}
 	<title>Ajout d'article</title>
@@ -14,7 +14,7 @@
 
 {% block content %}
 	<div class="my-5">
-		<form method="POST" action="{{constant('BASE')}}/admin/add">
+		<form method="POST" action="{{constant('ROOT')}}/admin/add">
 			<div class="form-floating">
 				<input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
 				<label for="title">Titre</label>
