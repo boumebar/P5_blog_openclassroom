@@ -27,15 +27,13 @@ $router->get('/contact', 'App\Controllers\ContactController@show');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
 //update post
-$router->get('/admin/update/:id', 'App\Controllers\AdminController@update');
-$router->post('/admin/update/:id', 'App\Controllers\AdminController@update');
+$router->match('/admin/update/:id', 'App\Controllers\AdminController@update');
 
 //delete post
 $router->post('/admin/delete/:id', 'App\Controllers\AdminController@delete');
 
 // add post
-$router->get('/admin/add', 'App\Controllers\AdminController@create');
-$router->post('/admin/add', 'App\Controllers\AdminController@create');
+$router->match('/admin/add', 'App\Controllers\AdminController@create');
 
 // add Comment
 $router->post('/comment/add', 'App\Controllers\CommentController@create');
@@ -49,13 +47,10 @@ $router->post('/comment/delete/:id', 'App\Controllers\CommentController@delete')
 $router->post('/comment/validate/:id', 'App\Controllers\CommentController@validate');
 
 // register
-$router->get('/register', 'App\Controllers\AuthController@register');
-$router->post('/register', 'App\Controllers\AuthController@register');
-
+$router->match('/register', 'App\Controllers\AuthController@register');
 
 // login
-$router->get('/login', 'App\Controllers\AuthController@login');
-$router->post('/login', 'App\Controllers\AuthController@login');
+$router->match('/login', 'App\Controllers\AuthController@login');
 
 // logout
 $router->get('/logout', 'App\Controllers\AuthController@logout');

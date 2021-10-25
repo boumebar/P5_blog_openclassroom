@@ -9,11 +9,11 @@
 {% endblock %}
 
 {% block title %}
-	<h1>Ajouter un article</h1>
+	Ajouter un article
 {% endblock %}
 
 {% block content %}
-	<div class="my-5">
+	<div>
 		<form method="POST" action="{{constant('ROOT')}}/admin/add">
 			<div class="form-floating">
 				<input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
@@ -52,7 +52,9 @@
 				<div class="d-none" id="submitErrorMessage"> <div class="text-center text-danger mb-3">Une erreur est survenue</div>
 			</div>
 			<!-- Submit Button-->
-			<button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Envoi</button>
+			<div class='text-center'>
+				<button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Envoi</button>
+			</div>
 		</form>
 	</div>
 {% endblock %}

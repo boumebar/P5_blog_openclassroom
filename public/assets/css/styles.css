@@ -11409,6 +11409,7 @@ blockquote {
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 #mainNav .navbar-brand {
   font-weight: 800;
 }
@@ -11721,4 +11722,9 @@ header.masthead .post-heading .meta a {
 
 a {
   text-decoration: none !important;
+}
+#adminTitle {
+  padding-top: 150px;
+  text-align: center;
+  margin-bottom: 50px;
 }

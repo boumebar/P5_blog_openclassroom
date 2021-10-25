@@ -25,6 +25,12 @@ class Router
         $this->routes['POST'][] = new Route($path, $controller);
     }
 
+    public function match(string $path, string $controller)
+    {
+        $this->routes['POST'][] = new Route($path, $controller);
+        $this->routes['GET'][] = new Route($path, $controller);
+    }
+
     public function run()
     {
         if (!isset($_SERVER['REQUEST_METHOD'])) {
