@@ -29,7 +29,7 @@ class CommentRepository extends BaseRepository
     public function allNotValidated()
     {
         $pdo = $this->db->getPDO();
-        $query = $pdo->query("SELECT p.author as postAuthor,p.title,c.author,c.id,c.content 
+        $query = $pdo->query("SELECT c.author as commentAuthor,p.title,c.author,c.id,c.content 
                               FROM `comment` AS c 
                               JOIN post as p ON c.postId = p.id 
                               WHERE NOT c.validated 

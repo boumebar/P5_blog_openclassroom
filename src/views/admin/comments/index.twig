@@ -37,7 +37,7 @@
 				<tr>
 					<th scope="row">{{ comment.id }}</th>
 					<td>{{ comment.title }}</td>
-					<td>{{ comment.postAuthor }}</td>
+					<td>{{ comment.commentAuthor }}</td>
 					<td>{{ comment.content }}</td>
 					<td class="text-end">
 						<form method="post" action="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir valider ce commentaire ?')">
