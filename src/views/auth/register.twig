@@ -14,23 +14,33 @@
 
 {% block content %}
 	<p>Inscrivez-vous pour pouvoir commenter les articles du blog.</p>
-
+	{% if _session.erreur %}
+		<div class="alert alert-danger">
+			<ul>
+				{% for erreur in _session.erreur %}
+					<li>
+						{{ erreur }}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
 	<div class="col-sm-auto col-md-5 col-xl-3 mt-4 mb-5">
 		<form method="post" action="">
 			<div class="mb-3">
 				<label for="username" class="form-label">Nom</label>
-				<input type="text" class="form-control" name="username" minlength="3" aria-describedby="usernameDesc" required/>
+				<input type="text" class="form-control" name="username" minlength="3" aria-describedby="usernameDesc" value="{{ post.username}}"/>
 				<div id="usernameDesc" class="form-text">
 					3 caractères minimum.
 				</div>
 			</div>
 			<div class="mb-3">
 				<label for="email" class="form-label">E-mail</label>
-				<input type="email" class="form-control" name="email" required/>
+				<input type="email" class="form-control" name="email" value="{{ post.email}}"/>
 			</div>
 			<div class="mb-3">
 				<label for="password" class="form-label">Mot de passe</label>
-				<input type="password" class="form-control" name="password" minlength="8" aria-describedby="passwordDesc" required/>
+				<input type="password" class="form-control" name="password" minlength="8" aria-describedby="passwordDesc"/>
 				<div id="passwordDesc" class="form-text">
 					8 caractères minimum.
 				</div>

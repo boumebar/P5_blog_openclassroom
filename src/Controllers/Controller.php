@@ -45,7 +45,7 @@ abstract class Controller
 
     public function isAdmin()
     {
-        if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
+        if (isset($_SESSION['user']) && $_SESSION['user']['isAdmin'] === 1) {
             return true;
         } else
             $this->redirect('login');
@@ -53,7 +53,7 @@ abstract class Controller
 
     public function isLogged()
     {
-        if (!empty($_SESSION)) {
+        if (!empty($_SESSION['user'])) {
             return true;
         } else
             $this->redirect('login');

@@ -23,6 +23,18 @@ class UserRepository extends BaseRepository
             return $query->fetch();
     }
 
+    public function findByEmail(string $email): ?User
+    {
+        $pdo = $this->db->getPDO();
+        $query = $pdo->prepare("SELECT * FROM user WHERE email = :email ");
+        $query->setFetchMode(PDO::FETCH_CLASS, User::class, [$this->db]);
+        $query->execute(['email' => $email]);
+        if ($query->rowCount() === 0)
+            return null;
+        else
+            return $query->fetch();
+    }
+
     public function create(User $user): void
     {
 

@@ -47,12 +47,12 @@
 				</div>
 			{% endfor %}
 
-			{% if _session %}
+			{% if _session.user %}
 				<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="form-group">
-								<input class="form-input" name="author" type="text" placeholder="Nom">
+								<input class="form-input" name="author" type="text" placeholder="Nom" value={{ _session.user.username}}>
 							</div>
 						</div>
 						<div class="col-xs-12">
