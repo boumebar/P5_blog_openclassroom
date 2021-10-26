@@ -19,9 +19,20 @@ class CommentController extends Controller
 
     public function create()
     {
-
+        $_SESSION['erreur'] = [];
         $this->isLogged();
         if (!empty($_POST)) {
+            if (!isset($_POST['author']) || empty($_POST['author'])) {
+                $_SESSION['erreur'][] = "Veuillez entrer un nom";
+            };
+            if (!isset($_POST['content']) || empty($_POST['content'])) {
+                $_SESSION['erreur'][] = "Veuillez entrer un commentaire";
+            };
+            if (isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])) {
+                $this->redirect("post/{$_POST['postId']}");
+                exit();
+            }
+            dd('jesuisla');
             $commentRepo = new CommentRepository($this->db);
             $comment = (new Comment($this->db));
             $comment

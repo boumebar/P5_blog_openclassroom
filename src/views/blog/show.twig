@@ -48,6 +48,17 @@
 			{% endfor %}
 
 			{% if _session.user %}
+				{% if _session.erreur %}
+					<div class="alert alert-danger">
+						<ul>
+							{% for erreur in _session.erreur %}
+								<li>
+									{{ erreur }}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
 				<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
 					<div class="row">
 						<div class="col-xs-12">
