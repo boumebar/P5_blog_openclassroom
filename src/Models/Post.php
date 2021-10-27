@@ -84,7 +84,7 @@ class Post extends Model
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = htmlspecialchars($createdAt);
 
         return $this;
     }

@@ -95,7 +95,7 @@ class Comment extends Model
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = htmlspecialchars($createdAt);
 
         return $this;
     }
@@ -135,7 +135,7 @@ class Comment extends Model
      */
     public function setValidated($validated)
     {
-        $this->validated = $validated;
+        $this->validated = htmlspecialchars($validated);
 
         return $this;
     }

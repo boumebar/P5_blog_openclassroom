@@ -79,7 +79,7 @@ class User extends Model
      */
     public function setIsAdmin($isAdmin)
     {
-        $this->isAdmin = $isAdmin;
+        $this->isAdmin = htmlspecialchars($isAdmin);
 
         return $this;
     }
