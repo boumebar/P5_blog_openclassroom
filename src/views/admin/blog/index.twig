@@ -13,7 +13,6 @@
 {% endblock %}
 
 {% block content %}
-
 	{% if _get.delete %}
 		<div class="alert alert-success">
 			Votre article a bien été supprimé
@@ -51,6 +50,7 @@
 					<td class="text-end">
 						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
 						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+							<input type="hidden" name="token" value="{{ _session.token }}"/>
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>

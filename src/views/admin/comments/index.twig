@@ -41,9 +41,11 @@
 					<td>{{ comment.content }}</td>
 					<td class="text-end">
 						<form method="post" action="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir valider ce commentaire ?')">
+							<input type="hidden" name="token" value="{{ _session.token }}"/>
 							<button class="btn btn-success">Valider</button>
 						</form>
 						<form method="post" action="{{constant('ROOT')}}/comment/delete/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer ce commentaire ?')">
+							<input type="hidden" name="token" value="{{ _session.token }}"/>
 							<button class="btn btn-danger">Supprimer</button>
 						</form>
 					</td>

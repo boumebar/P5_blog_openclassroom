@@ -13,47 +13,43 @@
 {% endblock %}
 
 {% block content %}
+	{% if _session.message.erreur %}
+		<div class="alert alert-danger">
+			<ul>
+				{% for erreur in _session.message.erreur %}
+					<li>
+						{{ erreur }}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
 	<div class="mb-5">
-		<form method="POST" action="{{constant('ROOT')}}/admin/add">
+		<form method="POST" action="{{constant('ROOT')}}/admin/add" class="needs-validation" novalidate>
 			<div class="form-floating">
-				<input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." data-sb-validations="required"/>
+				<input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..." value="{{ post.title }}" required/>
 				<label for="title">Titre</label>
-				<div class="invalid-feedback" data-sb-feedback="title:required">A name is required.</div>
+				<div class="invalid-feedback" data-sb-feedback="title:required">Le titre est obligatoire</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="author" name="author" type="text" placeholder="Enter your author..." data-sb-validations="required"/>
+				<input class="form-control" id="author" name="author" type="text" placeholder="Enter your author..." value="{{ post.author }}" required/>
 				<label for="author">Auteur</label>
-				<div class="invalid-feedback" data-sb-feedback="author:required">An author is required.</div>
+				<div class="invalid-feedback" data-sb-feedback="author:required">Le nom de l'auteur est obligatoire</div>
 			</div>
 			<div class="form-floating">
-				<input class="form-control" id="chapo" name="chapo" type="text" placeholder="Enter your chapô..." data-sb-validations="required,chapo"/>
+				<input class="form-control" id="chapo" name="chapo" type="text" placeholder="Enter your chapô..." value="{{ post.chapo }}" required/>
 				<label for="chapo">Chapô</label>
-				<div class="invalid-feedback" data-sb-feedback="chapo:required">An chapo is required.</div>
-				<div class="invalid-feedback" data-sb-feedback="chapo:chapo">chapo is not valid.</div>
+				<div class="invalid-feedback" data-sb-feedback="chapo:chapo">Le chapô est demandé</div>
 			</div>
 			<div class="form-floating">
-				<textarea class="form-control" id="content" name="content" placeholder="Enter your content here..." style="height: 12rem" data-sb-validations="required"></textarea>
+				<textarea class="form-control" id="content" name="content" placeholder="Enter your content here..." style="height: 12rem" required>{{ post.content }}</textarea>
 				<label for="content">Contenu</label>
-				<div class="invalid-feedback" data-sb-feedback="content:required">A content is required.</div>
+				<div class="invalid-feedback" data-sb-feedback="content:required">Veuilez entrer votre article</div>
 			</div>
 			<br/>
-			<!-- Submit success message-->
-			<!---->
-			<!-- This is what your users will see when the form-->
-			<!-- has successfully submitted-->
-				<div class="d-none" id="submitSuccessMessage"> <div class="text-center mb-3">
-					<div class="fw-bolder">Votre message a été envoyé</div>
-				</div>
-			</div>
-			<!-- Submit error message-->
-			<!---->
-			<!-- This is what your users will see when there is-->
-			<!-- an error submitting the form-->
-				<div class="d-none" id="submitErrorMessage"> <div class="text-center text-danger mb-3">Une erreur est survenue</div>
-			</div>
-			<!-- Submit Button-->
+			<input type="hidden" name="token" value="{{ _session.token }}"/>
 			<div class='text-center'>
-				<button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Envoi</button>
+				<button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Ajouter</button>
 			</div>
 		</form>
 	</div>

@@ -30,7 +30,6 @@
 	<div class="container">
 		<div class="be-comment-block">
 			<h2 class="comments-title">Commentaires</h2>
-
 			{% for comment in comments %}
 				<div class="be-comment">
 					<div class="be-comment-content">
@@ -48,10 +47,10 @@
 			{% endfor %}
 
 			{% if _session.user %}
-				{% if _session.erreur %}
+				{% if _session.message.erreur %}
 					<div class="alert alert-danger">
 						<ul>
-							{% for erreur in _session.erreur %}
+							{% for erreur in _session.message.erreur %}
 								<li>
 									{{ erreur }}
 								</li>
@@ -59,19 +58,23 @@
 						</ul>
 					</div>
 				{% endif %}
-				<form class="form-block" action="{{constant('ROOT')}}/comment/add" method="post">
+				<form class="form-block needs-validation" method="post" action="{{constant('ROOT')}}/comment/add" novalidate>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="form-group">
-								<input class="form-input" name="author" type="text" placeholder="Nom" value={{ _session.user.username}}>
+								<input class="form-input form-control" name="author" id="author" type="text" placeholder="Nom" required value={{ _session.user.username}}>
+								<div class="invalid-feedback" data-sb-feedback="author:required">Le titre est obligatoire</div>
 							</div>
 						</div>
 						<div class="col-xs-12">
 							<div class="form-group">
-								<textarea name="content" class="form-input" placeholder="Votre commentaire"></textarea>
+								<textarea name="content" class="form-input form-control" placeholder="Votre commentaire" required></textarea>
+								<div class="invalid-feedback" data-sb-feedback="content:required">Le commentaire est obligatoire</div>
 							</div>
+
 						</div>
 						<input type="hidden" name="postId" value="{{post.getId}}"/>
+						<input type="hidden" name="token" value="{{ _session.token }}"/>
 						<button class="btn btn-primary pull-right" type="submit">Envoyer</button>
 					</div>
 				</form>

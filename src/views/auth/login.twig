@@ -19,10 +19,10 @@
 			Vous êtes bien inscrit , veuillez vous connecter
 		</div>
 	{% endif %}
-	{% if _session.erreur %}
+	{% if _session.message %}
 		<div class="alert alert-danger">
 			<ul>
-				{% for erreur in _session.erreur %}
+				{% for erreur in _session.message.erreur %}
 					<li>
 						{{ erreur }}
 					</li>
@@ -31,21 +31,16 @@
 		</div>
 	{% endif %}
 
-	<form method="post" action="{{constant('ROOT')}}/login" id="contactForm" class="mb-5" novalidate>
-		<div class="control-group">
-			<div class="form-group floating-label-form-group controls">
-				<label for="email">Email</label>
-				<input name="email" type="email" value="{{post.email}}" class="form-control" id="email" required data-validation-required-message="Veuillez renseigner ce champ.">
-				<p class="help-block text-danger"></p>
-			</div>
+	<form method="post" action="{{constant('ROOT')}}/login" id="contactForm" class="form-block needs-validation mb-5" novalidate>
+		<div class="form-group mb-4">
+			<label for="email">Email</label>
+			<input name="email" type="email" value="{{post.email}}" class="form-control" id="email" required>
+			<div class="invalid-feedback" data-sb-feedback="email:email">Veuillez entrer un email valide</div>
 		</div>
-
-		<div class="control-group">
-			<div class="form-group floating-label-form-group controls">
-				<label for="password">Mot de passe</label>
-				<input name="password" type="password" class="form-control" id="password" required data-validation-required-message="Veuillez renseigner ce champ.">
-				<p class="help-block text-danger"></p>
-			</div>
+		<div class="form-group">
+			<label for="password">Mot de passe</label>
+			<input name="password" type="password" class="form-control" id="password" required>
+			<div class="invalid-feedback" data-sb-feedback="password:required">Veuillez entrer votre mot de passe</div>
 		</div>
 		<br>
 		<div id="success"></div>

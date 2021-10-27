@@ -14,10 +14,10 @@
 
 {% block content %}
 	<p>Inscrivez-vous pour pouvoir commenter les articles du blog.</p>
-	{% if _session.erreur %}
+	{% if _session.message.erreur %}
 		<div class="alert alert-danger">
 			<ul>
-				{% for erreur in _session.erreur %}
+				{% for erreur in _session.message.erreur %}
 					<li>
 						{{ erreur }}
 					</li>
@@ -29,21 +29,16 @@
 		<form method="post" action="">
 			<div class="mb-3">
 				<label for="username" class="form-label">Nom</label>
-				<input type="text" class="form-control" name="username" minlength="3" aria-describedby="usernameDesc" value="{{ post.username}}"/>
-				<div id="usernameDesc" class="form-text">
-					3 caractères minimum.
-				</div>
+				<input type="text" class="form-control" name="username" id="username" minlength="3" aria-describedby="usernameDesc" value="{{ post.username}}" required/>
+				<div class="invalid-feedback" data-sb-feedback="username:required">Veuillez entrer votre nom</div>
 			</div>
 			<div class="mb-3">
 				<label for="email" class="form-label">E-mail</label>
-				<input type="email" class="form-control" name="email" value="{{ post.email}}"/>
+				<input type="email" class="form-control" name="email" value="{{ post.email}}" required/>
 			</div>
 			<div class="mb-3">
 				<label for="password" class="form-label">Mot de passe</label>
-				<input type="password" class="form-control" name="password" minlength="8" aria-describedby="passwordDesc"/>
-				<div id="passwordDesc" class="form-text">
-					8 caractères minimum.
-				</div>
+				<input type="password" class="form-control" name="password" minlength="8" aria-describedby="passwordDesc" required/>
 			</div>
 			<button type="submit" class="btn btn-primary">S'inscrire</button>
 		</form>

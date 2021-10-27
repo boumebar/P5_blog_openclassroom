@@ -1,0 +1,81 @@
+{% extends "layouts/layout.twig" %}
+
+{% block head  %}
+	<title>Contact</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/contact-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Contactez-moi</h1>
+{% endblock %}
+
+{% block content %}
+	{% if _session.message %}
+		{% if _session.message.erreur %}
+			<div class="alert alert-danger">
+				<ul>
+					{% for erreur in _session.message.erreur %}
+						<li>
+							{{ erreur }}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% else %}
+			<div class="alert alert-success">
+				<ul>
+					{% for valide in _session.message.valide %}
+						<li>
+							{{ valide }}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+
+	{% endif %}
+	<div class="container px-4 px-lg-5">
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+			<div class="col-md-10 col-lg-8 col-xl-7">
+				<p>Envoyez-moi un message, je vous repondrais dès que possible. A bientot !!!!</p>
+				<div class="my-5">
+					<form method="POST" action="" class="needs-validation" novalidate>
+						<div class="form-floating">
+							<input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." value="{{post.name}}" required/>
+							<label for="name">Nom<span style="color:red">*</span>
+							</label>
+							<div class="invalid-feedback" data-sb-feedback="name:required">Le nom est obligatoire</div>
+						</div>
+						<div class="form-floating">
+							<input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." value="{{post.email}}" required/>
+							<label for="email">Email<span style="color:red">*</span>
+							</label>
+							<div class="invalid-feedback" data-sb-feedback="email:required">L'email est obligatoire</div>
+							<div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide</div>
+						</div>
+						<div class="form-floating">
+							<input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter your phone number..." value="{{post.phone}}" pattern="^[0]{1}[0-9]{9}$"/>
+							<label for="phone">Téléphone</label>
+							<div class="invalid-feedback" data-sb-feedback="phone:phone">Le telephone n'est pas valide (ex:06********).</div>
+						</div>
+						<div class="form-floating">
+							<textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem" required>{{post.message}}</textarea>
+							<label for="message">Message<span style="color:red">*</span>
+							</label>
+							<div class="invalid-feedback" data-sb-feedback="message:required">Le message est obligatoire</div>
+						</div>
+						<br/>
+						<div class="text-center">
+							<button class="btn btn-primary text-uppercase " id="submitButton" type="submit">Envoi</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
