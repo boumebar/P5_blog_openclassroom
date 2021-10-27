@@ -19,20 +19,24 @@ class CommentController extends Controller
 
     public function create()
     {
-        $_SESSION['erreur'] = [];
+        $_SESSION['message'] = [];
         $this->isLogged();
         if (!empty($_POST)) {
             if (!isset($_POST['author']) || empty($_POST['author'])) {
-                $_SESSION['erreur'][] = "Veuillez entrer un nom";
+                $_SESSION['message']['erreur'][] = "Le nom est obligatoire";
             };
             if (!isset($_POST['content']) || empty($_POST['content'])) {
-                $_SESSION['erreur'][] = "Veuillez entrer un commentaire";
+                $_SESSION['message']['erreur'][] = "Le commentaire est obligatoire";
             };
-            if (isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])) {
+            if (!isset($_POST['token']) || empty($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+                exit;
+            }
+
+            if (isset($_SESSION['message']['erreur']) && !empty($_SESSION['message']['erreur'])) {
                 $this->redirect("post/{$_POST['postId']}");
                 exit();
             }
-            dd('jesuisla');
             $commentRepo = new CommentRepository($this->db);
             $comment = (new Comment($this->db));
             $comment
@@ -49,6 +53,10 @@ class CommentController extends Controller
     public function delete($id)
     {
         $this->isAdmin();
+        if (!isset($_POST['token']) || empty($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+            exit;
+        }
         $comment = new CommentRepository($this->db);
         $comment->delete($id);
         $this->redirect('comments?delete=1');
@@ -57,6 +65,10 @@ class CommentController extends Controller
     public function validate($id)
     {
         $this->isAdmin();
+        if (!isset($_POST['token']) || empty($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+            exit;
+        }
         $comment = new CommentRepository($this->db);
         $comment->validate($id);
         $this->redirect('comments?validate=1');

@@ -13,22 +13,20 @@ class AuthController extends Controller
 
     public function login()
     {
-        $_SESSION['erreur'] = [];
+        $_SESSION['message'] = [];
 
         if (isset($_SESSION['user']) || !empty($_SESSION['user'])) {
             $this->redirect('posts');
         }
-        // $user = new User($this->db);
         if (!empty($_POST)) {
-            // $user->setUsername($_POST['username']);
             if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])) {
-                if (!empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                    $_SESSION['erreur'][] = "Veuillez renseigner une adresse email valide";
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $_SESSION['message']['erreur'][] = "Veuillez renseigner une adresse email valide";
                 } else {
                     $user = (new UserRepository($this->db))->findByEmail($_POST['email']);
 
                     if (!$user) {
-                        $_SESSION['erreur'][] = "Email ou identifiant incorrect";
+                        $_SESSION['message']['erreur'][] = "Email ou identifiant incorrect";
                     } else {
                         if (password_verify($_POST['password'], $user->getPassword()) == true) {
                             $_SESSION['user'] = [
@@ -37,19 +35,20 @@ class AuthController extends Controller
                                 'email' => $user->getEmail(),
                                 'isAdmin' => (int)$user->getIsAdmin()
                             ];
+                            $_SESSION['token'] = md5(uniqid(mt_rand(), true));
                             if ($_SESSION['user']['isAdmin'] === 1) {
                                 $this->redirect('admin?success=1');
                             } else {
                                 $this->redirect('posts?success=1');
                             }
                         } else
-                            $_SESSION['erreur'][] = "Email ou identifiant incorrect";
+                            $_SESSION['message']['erreur'][] = "Email ou identifiant incorrect";
                     }
                 }
             } else
-                $_SESSION['erreur'][] = "Veuillez renseigner tout les champs";
+                $_SESSION['message']["erreur"][] = "Veuillez renseigner tout les champs";
 
-            if (isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])) {
+            if (isset($_SESSION['message']['erreur']) && !empty($_SESSION['message']['erreur'])) {
                 $this->render('auth/login', ['post' => $_POST]);
                 exit();
             }
@@ -60,12 +59,13 @@ class AuthController extends Controller
     public function logout()
     {
         unset($_SESSION['user']);
+        unset($_SESSION['token']);
         $this->redirect("posts");
     }
 
     public function register()
     {
-        $_SESSION['erreur'] = [];
+        $_SESSION['message'] = [];
 
         if (isset($_SESSION["user"])) {
             $this->redirect('posts');
@@ -76,21 +76,21 @@ class AuthController extends Controller
             $user = (new UserRepository($this->db))->findByEmail($_POST['email']);
 
             if (isset($_POST['email']) && !empty($_POST['email']) && $user) {
-                $_SESSION['erreur'][] = "Un compte avec cette adresse mail existe déjà";
+                $_SESSION['message']['erreur'][] = "Un compte avec cette adresse mail existe déjà";
             }
             if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password'])) {
-                $_SESSION['erreur'][] = "Veuillez renseigner tout les champs";
+                $_SESSION['message']['erreur'][] = "Veuillez renseigner tout les champs";
             }
             if (isset($_POST['username']) && !empty($_POST['username']) && strlen($_POST['username']) < 3) {
-                $_SESSION['erreur'][] = "Le nom doit contenir au moins 3 caractères";
+                $_SESSION['message']['erreur'][] = "Le nom doit contenir au moins 3 caractères";
             }
             if (isset($_POST['email']) && !empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $_SESSION['erreur'][] = "Veuillez renseigner une adresse email valide";
+                $_SESSION['message']['erreur'][] = "Veuillez renseigner une adresse email valide";
             }
             if (isset($_POST['password']) && !empty($_POST['password']) && strlen($_POST['password']) < 8) {
-                $_SESSION['erreur'][] = "Le mot de passe doit contenir au moins 8 caractères";
+                $_SESSION['message']['erreur'][] = "Le mot de passe doit contenir au moins 8 caractères";
             }
-            if (isset($_SESSION['erreur']) && !empty($_SESSION['erreur'])) {
+            if (isset($_SESSION['message']['erreur']) && !empty($_SESSION['message']['erreur'])) {
                 $this->render('auth/register', ['post' => $_POST]);
                 exit();
             }
