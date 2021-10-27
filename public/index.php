@@ -23,7 +23,7 @@ $router = new Router($_GET['url']);
 $router->get('/index', 'App\Controllers\PostController@index');
 $router->get('/posts', 'App\Controllers\PostController@showAll');
 $router->get('/post/:id', 'App\Controllers\PostController@show');
-$router->get('/contact', 'App\Controllers\ContactController@show');
+$router->match('/contact', 'App\Controllers\ContactController@contact');
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
 //update post
@@ -54,6 +54,7 @@ $router->match('/login', 'App\Controllers\AuthController@login');
 
 // logout
 $router->get('/logout', 'App\Controllers\AuthController@logout');
+
 
 try {
     $router->run();
