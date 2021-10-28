@@ -27,7 +27,6 @@ class Router
 
     public function run()
     {
-
         if (!isset($_SERVER['REQUEST_METHOD'])) {
             throw new RouterException('NO REQUEST METHOD');
         }

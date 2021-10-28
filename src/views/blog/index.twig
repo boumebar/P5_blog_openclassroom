@@ -1,0 +1,39 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Les articles</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/home-bg.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Les Articles</h1>
+{% endblock %}
+
+{% block content %}
+	{% if _get.success %}
+		<div class="alert alert-success">
+			Vous etes connecté
+		</div>
+	{% endif %}
+
+	<div class="row">
+		{% for post in posts %}
+			<div class="col-md-3">
+				<div class="card mb-3">
+					<div class="card-body">
+						<h5 class="card-title">{{ post.getTitle }}</h5>
+						<small class="text-muted">
+							{{ post.getCreatedAt}}</small>
+						<p>{{ post.getChapo }}</p>
+						<p>
+							<a href="{{constant('ROOT')}}/post/{{ post.getId }}" class="btn btn-primary">Voir plus</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

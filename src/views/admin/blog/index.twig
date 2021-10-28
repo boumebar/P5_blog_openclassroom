@@ -1,0 +1,60 @@
+{% extends "layout.twig" %}
+
+{% block head  %}
+	<title>Administration</title>
+{% endblock %}
+
+{% block image %}
+	style="background-image:url({{ constant('SCRIPT') ~ '/assets/img/administration2.jpg'}}) "
+{% endblock %}
+
+{% block title %}
+	<h1>Administration</h1>
+{% endblock %}
+
+{% block content %}
+
+	{% if _get.delete %}
+		<div class="alert alert-success">
+			Votre article a bien été supprimé
+		</div>
+	{% elseif _get.add %}
+		<div class="alert alert-success">
+			Votre article a bien été ajouté
+		</div>
+	{% elseif _get.success %}
+		<div class="alert alert-success">
+			Vous etes connecté
+		</div>
+	{% elseif _get.update %}
+		<div class="alert alert-success">
+			Votre article a bien été modifié
+		</div>
+	{% endif %}
+
+
+	<a href="{{constant('ROOT')}}/admin/add" class="btn btn-primary">Ajout d'un article</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Titre</th>
+				<th class="text-end px-5">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for post in posts %}
+				<tr>
+					<td>{{ post.getId }}</td>
+					<td scope="row">{{ post.getTitle}}</td>
+					<td class="text-end">
+						<a href="{{constant('ROOT')}}/admin/update/{{post.id}}" class="btn btn-warning">Modifier</a>
+						<form method="post" action="{{constant('ROOT')}}/admin/delete/{{post.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir supprimer cet article ?')">
+							<button class="btn btn-danger">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
