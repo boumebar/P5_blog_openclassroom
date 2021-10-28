@@ -11637,7 +11637,7 @@ header.masthead .post-heading .meta a {
   margin-bottom: 50px !important;
   border: 1px solid #edeff2;
   border-radius: 2px;
-  padding: 50px 70px;
+  padding: 50px 60px;
   border: 1px solid #ffffff;
 }
 
@@ -11646,7 +11646,7 @@ header.masthead .post-heading .meta a {
 }
 
 .be-comment-block .btn {
-  width: 30%;
+  width: 35%;
   margin: 0 auto;
 }
 
@@ -11659,12 +11659,6 @@ header.masthead .post-heading .meta a {
 
 .be-comment-content {
   margin-left: 70px;
-}
-
-.be-comment-content span {
-  display: inline-block;
-  width: 49%;
-  margin-bottom: 15px;
 }
 
 .be-comment-name {
@@ -11727,4 +11721,23 @@ a {
   padding-top: 150px;
   text-align: center;
   margin-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+  .be-comment-block .btn {
+    width: 60%;
+  }
+  .be-comment-content {
+    margin-left: 25px;
+  }
+  .be-comment-block {
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn-danger {
+    margin-top: 5px;
+    padding: 1rem 1.25rem;
+  }
 }

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '3e4da415828f1e6e715afa48645e6d325da0fdb2',
+    'reference' => 'd660f4bcaf658f58807ddd47a1935ca5b4a983d7',
     'name' => 'boumediene/p5blog',
   ),
   'versions' => 
@@ -18,16 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '3e4da415828f1e6e715afa48645e6d325da0fdb2',
+      'reference' => 'd660f4bcaf658f58807ddd47a1935ca5b4a983d7',
     ),
     'filp/whoops' => 
     array (
-      'pretty_version' => '2.14.3',
-      'version' => '2.14.3.0',
+      'pretty_version' => '2.14.4',
+      'version' => '2.14.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '89584ce67dd32307f1063cc43846674f4679feda',
+      'reference' => 'f056f1fe935d9ed86e698905a957334029899895',
     ),
     'phpmailer/phpmailer' => 
     array (
@@ -375,12 +375,12 @@
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v5.3.7',
-      'version' => '5.3.7.0',
+      'pretty_version' => 'v5.3.8',
+      'version' => '5.3.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3ad5af4aed07d0a0201bbcfc42658fe6c5b2fb8f',
+      'reference' => 'eaaea4098be1c90c8285543e1356a09c8aa5c8da',
     ),
     'symfony/var-exporter' => 
     array (
@@ -411,12 +411,12 @@
     ),
     'twig/twig' => 
     array (
-      'pretty_version' => 'v3.3.2',
-      'version' => '3.3.2.0',
+      'pretty_version' => 'v3.3.3',
+      'version' => '3.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
+      'reference' => 'a27fa056df8a6384316288ca8b0fa3a35fdeb569',
     ),
   ),
 );

@@ -20,13 +20,13 @@
 	{% endif %}
 	<div class="row">
 		{% for post in posts %}
-			<div class="col-md-3">
+			<div class="col-sm-6 col-lg-3">
 				<div class="card mb-3">
 					<div class="card-body">
 						<h5 class="card-title">{{ post.getTitle }}</h5>
 						<small class="text-muted">
 							{{ post.getCreatedAt}}</small>
-						<p>{{ post.getChapo }}</p>
+						<p>{{ post.getChapo}}</p>
 						<p>
 							<a href="{{constant('ROOT')}}/post/{{ post.getId }}" class="btn btn-primary d-flex justify-content-center">Voir plus</a>
 						</p>
