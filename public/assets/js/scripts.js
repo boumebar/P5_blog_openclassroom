@@ -2,10 +2,10 @@
 (function () {
     "use strict";
   
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //  Récupérer tous les formulaires auxquels nous voulons appliquer des styles de validation Bootstrap personnalisés
     var forms = document.querySelectorAll(".needs-validation");
   
-    // Loop over them and prevent submission
+    // Boucle sur eux et empêche la soumission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
         form.addEventListener("submit", function (event) {

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b789ea9e9ad9c1774ccfa3c2cf5a2c5600e9b564',
+    'reference' => '46594a1f16e330b889c6f63eed61594285f2d39e',
     'name' => 'boumediene/p5blog',
   ),
   'versions' => 
@@ -42,16 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b789ea9e9ad9c1774ccfa3c2cf5a2c5600e9b564',
-    ),
-    'filp/whoops' => 
-    array (
-      'pretty_version' => '2.14.4',
-      'version' => '2.14.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f056f1fe935d9ed86e698905a957334029899895',
+      'reference' => '46594a1f16e330b889c6f63eed61594285f2d39e',
     ),
     'phpmailer/phpmailer' => 
     array (
