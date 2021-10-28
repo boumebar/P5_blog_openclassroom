@@ -31,9 +31,10 @@ abstract class BaseRepository
         $query = $pdo->prepare("SELECT * FROM $this->table WHERE id = :id ");
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class, [$this->db]);
         $query->execute(['id' => $id]);
-        if ($query->rowCount() === 0)
-            throw new Exception("Impossible de trouver l'element $id dans la table $this->table");
-        else
+        if ($query->rowCount() === 0) {
+            header("Location: " . ROOT . "/404", 404);
+            exit();
+        } else
             return $query->fetch();
     }
 
@@ -43,7 +44,8 @@ abstract class BaseRepository
         $query = $pdo->prepare("DELETE FROM $this->table WHERE id = :id");
         $query->execute(['id' => $id]);
         if ($query->rowCount() === 0) {
-            throw new Exception("Impossible de supprimer l'element $id dans la table $this->table");
+            header("Location: " . ROOT . "/404", 404);
+            exit();
         }
     }
 }

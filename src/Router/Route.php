@@ -4,7 +4,6 @@
 namespace App\Router;
 
 use App\database\DBConnection;
-use Exception;
 
 class Route
 {
@@ -47,7 +46,8 @@ class Route
             if ($id > 0) {
                 return $controller->$method($this->matches[1]);
             } else {
-                throw new Exception('Cet id de post n\'existe pas ');
+                header("Location: " . ROOT . "/404", 404);
+                exit();
             }
         }
 

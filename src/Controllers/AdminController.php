@@ -109,4 +109,10 @@ class AdminController extends Controller
             $this->render('admin/blog/create');
         }
     }
+
+
+    public function pageNotFound()
+    {
+        $this->render('404');
+    }
 }

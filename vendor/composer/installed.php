@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'd660f4bcaf658f58807ddd47a1935ca5b4a983d7',
+    'reference' => 'b789ea9e9ad9c1774ccfa3c2cf5a2c5600e9b564',
     'name' => 'boumediene/p5blog',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'd660f4bcaf658f58807ddd47a1935ca5b4a983d7',
+      'reference' => 'b789ea9e9ad9c1774ccfa3c2cf5a2c5600e9b564',
     ),
     'filp/whoops' => 
     array (
