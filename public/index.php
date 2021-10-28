@@ -55,9 +55,12 @@ $router->match('/login', 'App\Controllers\AuthController@login');
 // logout
 $router->get('/logout', 'App\Controllers\AuthController@logout');
 
+// page 404
+$router->get('/404', 'App\Controllers\AdminController@pageNotFound');
+
 
 try {
     $router->run();
 } catch (RouterException $e) {
-    echo $e->getMessage();
+    header("Location: " . ROOT . "/404");
 }

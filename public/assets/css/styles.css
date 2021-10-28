@@ -11723,6 +11723,15 @@ a {
   margin-bottom: 50px;
 }
 
+.notfound h1 {
+  font-size: 10rem;
+  color: #b2b2be;
+}
+.notfound p {
+  font-size: 1.3rem;
+  color: #b2b2be;
+}
+
 @media (max-width: 992px) {
   .be-comment-block .btn {
     width: 60%;
