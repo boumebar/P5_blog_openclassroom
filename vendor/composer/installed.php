@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '85a96227649dff0007450ab5869035a281c6710b',
+    'reference' => '8bf00d67240e4ce932923fffef656c4d4581daf8',
     'name' => 'boumediene/p5blog',
   ),
   'versions' => 
@@ -18,25 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '85a96227649dff0007450ab5869035a281c6710b',
-    ),
-    'filp/whoops' => 
-    array (
-      'pretty_version' => '2.14.3',
-      'version' => '2.14.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '89584ce67dd32307f1063cc43846674f4679feda',
-    ),
-    'psr/log' => 
-    array (
-      'pretty_version' => '1.1.4',
-      'version' => '1.1.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+      'reference' => '8bf00d67240e4ce932923fffef656c4d4581daf8',
     ),
     'symfony/polyfill-ctype' => 
     array (

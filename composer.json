@@ -13,7 +13,6 @@
     },
     "require": {
         "symfony/var-dumper": "^5.3",
-        "twig/twig": "^3.3",
-        "filp/whoops": "^2.14"
+        "twig/twig": "^3.3"
     }
 }
