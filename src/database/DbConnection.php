@@ -26,7 +26,8 @@ class DBConnection
     {
         return $this->pdo ?? $this->pdo = new PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->username, $this->password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET CHARACTER SET UTF8'
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET CHARACTER SET UTF8',
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
     }
 }
