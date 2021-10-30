@@ -8,9 +8,6 @@ class Post extends Model
 {
 
 
-    protected $table = "post";
-
-
     private $id;
     private $title;
     private $author;

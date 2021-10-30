@@ -8,7 +8,6 @@ use App\database\DBConnection;
 abstract class Model
 {
     protected $db;
-    protected $table;
 
     public function __construct(DBConnection $db)
     {

@@ -3,13 +3,11 @@
 
 namespace App\Models;
 
-use PDO;
 
 
 class Comment extends Model
 {
 
-    protected $table = "comment";
 
     private $id;
     private $author;
