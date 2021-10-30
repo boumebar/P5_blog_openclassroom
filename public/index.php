@@ -10,12 +10,6 @@ define('SCRIPT', dirname($_SERVER['SCRIPT_NAME']));
 define('ROOT', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
 
-define('DEBUG_TIME', microtime(true));
-
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
-$whoops->register();
-
 // dd($_GET);
 $router = new Router($_GET['url']);
 
