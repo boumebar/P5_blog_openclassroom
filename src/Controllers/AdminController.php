@@ -9,6 +9,7 @@ use App\Repositories\PostRepository;
 class AdminController extends Controller
 {
 
+    // Affiche panel d'admin avec tout les articles 
 
     public function index()
     {
@@ -17,6 +18,8 @@ class AdminController extends Controller
 
         $this->render('admin/blog/index', ['posts' => $posts]);
     }
+
+    // Supprime un article 
 
     public function delete(int $id)
     {
@@ -30,6 +33,7 @@ class AdminController extends Controller
         $this->redirect('admin?delete=1');
     }
 
+    // Modifie un article 
 
     public function update(int $id)
     {
@@ -69,6 +73,8 @@ class AdminController extends Controller
             $this->render('admin/blog/update', ['post' => $post]);
         }
     }
+
+    // Créer un article
 
     public function create()
     {
@@ -110,6 +116,7 @@ class AdminController extends Controller
         }
     }
 
+    // Affiche la page 404
 
     public function pageNotFound()
     {

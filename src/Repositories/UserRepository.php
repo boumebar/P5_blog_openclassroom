@@ -11,6 +11,8 @@ class UserRepository extends BaseRepository
 {
 
 
+    // trouve par nom
+
     public function findByUsername(string $username): User
     {
         $pdo = $this->db->getPDO();
@@ -23,6 +25,7 @@ class UserRepository extends BaseRepository
             return $query->fetch();
     }
 
+    // trouve par email
     public function findByEmail(string $email): ?User
     {
         $pdo = $this->db->getPDO();
@@ -34,6 +37,7 @@ class UserRepository extends BaseRepository
         else
             return $query->fetch();
     }
+
 
     public function create(User $user): void
     {

@@ -20,7 +20,10 @@ class Route
         $this->controller = $controller;
     }
 
-    public function match(string $url)
+
+    // Verifie que l'url tapée correspond a une de mes URl
+
+    public function match(string $url): bool
     {
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
         $pathToMatch = "#^$path$#";
@@ -32,6 +35,7 @@ class Route
         }
     }
 
+    // Instancie le controleur et lance la methode
     public function execute()
     {
 

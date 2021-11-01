@@ -12,6 +12,8 @@ class CommentRepository extends BaseRepository
     protected $table = "comment";
     protected $class = Comment::class;
 
+    // Trouve tout les commentaires validés par article 
+
     public function findValidatedByPostID($postId): array
     {
 
@@ -25,6 +27,8 @@ class CommentRepository extends BaseRepository
 
         return $query->fetchAll();
     }
+
+    // Trouve tout les commentaires non validés
 
     public function allNotValidated()
     {
@@ -49,6 +53,8 @@ class CommentRepository extends BaseRepository
             "postId"    => $comment->getPostId()
         ]);
     }
+
+    // Permet de valider un commentaire
 
     public function validate($id)
     {

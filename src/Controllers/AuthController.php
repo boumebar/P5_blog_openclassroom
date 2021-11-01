@@ -5,11 +5,11 @@ namespace App\Controllers;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
-use Exception;
 
 class AuthController extends Controller
 {
 
+    // Se connecter
 
     public function login()
     {
@@ -56,12 +56,16 @@ class AuthController extends Controller
             $this->render('auth/login');
     }
 
+    // Se deconnecter
+
     public function logout()
     {
         unset($_SESSION['user']);
         unset($_SESSION['token']);
         $this->redirect("posts");
     }
+
+    // S'enregistrer
 
     public function register()
     {

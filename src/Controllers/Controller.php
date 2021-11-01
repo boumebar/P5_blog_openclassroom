@@ -19,6 +19,8 @@ abstract class Controller
         $this->db = $db;
     }
 
+    // Renvoi la vue avec params
+
     public function render(string $page, ?array $params = [])
     {
         $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/views');
@@ -36,12 +38,15 @@ abstract class Controller
         echo $this->twig->render($page . '.twig', $params);
     }
 
+    // redirige 
+
     public function redirect(string $page)
     {
         header('Location: ' . ROOT . '/' . $page);
         exit();
     }
 
+    // Verifie si la personne est admin
 
     public function isAdmin()
     {
@@ -51,6 +56,7 @@ abstract class Controller
             $this->redirect('login');
     }
 
+    // verifie si la personne est connectée
     public function isLogged()
     {
         if (!empty($_SESSION['user'])) {

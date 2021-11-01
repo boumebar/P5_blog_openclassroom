@@ -4,7 +4,6 @@
 namespace App\Repositories;
 
 use App\database\DBConnection;
-use Exception;
 use PDO;
 
 abstract class BaseRepository
@@ -17,6 +16,8 @@ abstract class BaseRepository
         $this->db = $db;
     }
 
+    // affiche tout les elements d'une table 
+
     public function all(): array
     {
         $pdo = $this->db->getPDO();
@@ -24,6 +25,8 @@ abstract class BaseRepository
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class, [$this->db]);
         return $query->fetchAll();
     }
+
+    // Affiche un element d'une table en fonction de son id
 
     public function findById(int $id): object
     {
@@ -37,6 +40,8 @@ abstract class BaseRepository
         } else
             return $query->fetch();
     }
+
+    // Efface un element d'une table en fonction de son id
 
     public function delete(int $id): void
     {
