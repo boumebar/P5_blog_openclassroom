@@ -22,13 +22,13 @@
 			Le commentaire a bien été validé
 		</div>
 	{% endif %}
-	<table class="table table-responsive">
+	<table class="table table-responsive-sm">
 		<thead>
 			<tr>
 				<th scope="col">#</th>
-				<th scope="col">Titre de l'article</th>
-				<th scope="col">Nom du commentateur</th>
-				<th scope="col">Aperçu du commentaire</th>
+				<th scope="col">Article</th>
+				<th scope="col">Commentateur</th>
+				<th scope="col">Aperçu</th>
 				<th scope="col" class="text-end px-5">Actions</th>
 			</tr>
 		</thead>
@@ -40,7 +40,7 @@
 					<td>{{ comment.commentAuthor }}</td>
 					<td>{{ comment.content }}</td>
 					<td class="text-end">
-						<form method="post" action="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="d-inline" onsubmit="return confirm('Etes-vous certain de vouloir valider ce commentaire ?')">
+						<form method="post" action="{{constant('ROOT')}}/comment/validate/{{comment.id}}" class="d-inline mb-sm-5" onsubmit="return confirm('Etes-vous certain de vouloir valider ce commentaire ?')">
 							<input type="hidden" name="token" value="{{ _session.token }}"/>
 							<button class="btn btn-success">Valider</button>
 						</form>
