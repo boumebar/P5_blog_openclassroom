@@ -14,13 +14,10 @@
     },
     "require": {
         "symfony/var-dumper": "^5.3",
-<<<<<<< HEAD
-        "twig/twig": "^3.3"
-=======
+
         "twig/twig": "^3.3",
         "twig/string-extra": "^3.3",
         "phpmailer/phpmailer": "^6.5",
         "twig/extra-bundle": "^3.3"
->>>>>>> a11d0e5481b5307299d4ac638fded01606c12d16
     }
 }
