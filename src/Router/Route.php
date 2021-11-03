@@ -48,7 +48,7 @@ class Route
             if ($id > 0) {
                 return $controller->$method($this->matches[1]);
             } else {
-                throw new Exception('Cet id de post n\'existe pas ');
+                header("Location: " . ROOT . "/404");
             }
         }
 

@@ -37,7 +37,7 @@ class User extends Model
      *
      * @return  self
      */
-    public function setUsername($username)
+    public function setUsername(string $username): self
     {
         $this->username = htmlspecialchars($username);
 
@@ -57,7 +57,7 @@ class User extends Model
      *
      * @return  self
      */
-    public function setPassword($password)
+    public function setPassword($password): self
     {
         $this->password = password_hash($password, PASSWORD_BCRYPT);
 
@@ -77,7 +77,7 @@ class User extends Model
      *
      * @return  self
      */
-    public function setIsAdmin($isAdmin)
+    public function setIsAdmin($isAdmin): self
     {
         $this->isAdmin = htmlspecialchars($isAdmin);
 
@@ -97,7 +97,7 @@ class User extends Model
      *
      * @return  self
      */
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         $this->email = htmlspecialchars($email);
 

@@ -14,7 +14,7 @@ class CommentRepository extends BaseRepository
 
     // Trouve tout les commentaires validés par article 
 
-    public function findValidatedByPostID($postId): array
+    public function findValidatedByPostID(int $postId): array
     {
 
         $pdo = $this->db->getPDO();
@@ -56,7 +56,7 @@ class CommentRepository extends BaseRepository
 
     // Permet de valider un commentaire
 
-    public function validate($id)
+    public function validate(int $id)
     {
         $pdo = $this->db->getPDO();
         $query = $pdo->prepare("UPDATE $this->table SET validated = 1 WHERE id = :id");

@@ -11,6 +11,7 @@ class PostRepository extends BaseRepository
     protected $table = "post";
     protected $class = Post::class;
 
+
     public function update(Post $post): void
     {
 

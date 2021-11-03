@@ -10,9 +10,6 @@ class ContactController extends Controller
 {
 
 
-    /**
-     * 
-     */
     public function contact(): void
     {
         $_SESSION['message'] = [];

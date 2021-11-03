@@ -38,7 +38,7 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = htmlspecialchars($title);
 
@@ -59,7 +59,7 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setContent($content)
+    public function setContent(string $content): self
     {
         $this->content = htmlspecialchars($content);
 
@@ -79,7 +79,7 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt): self
     {
         $this->createdAt = htmlspecialchars($createdAt);
 
@@ -99,7 +99,7 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setAuthor($author)
+    public function setAuthor(string $author): self
     {
         $this->author = htmlspecialchars($author);
 
@@ -119,7 +119,7 @@ class Post extends Model
      *
      * @return  self
      */
-    public function setChapo($chapo)
+    public function setChapo(string $chapo): self
     {
         $this->chapo = htmlspecialchars($chapo);
 

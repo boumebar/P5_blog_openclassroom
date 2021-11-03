@@ -31,7 +31,7 @@ class Comment extends Model
      *
      * @return  self
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
 
@@ -51,7 +51,7 @@ class Comment extends Model
      *
      * @return  self
      */
-    public function setAuthor($author)
+    public function setAuthor(string $author)
     {
         $this->author = htmlspecialchars($author);
 
@@ -71,7 +71,7 @@ class Comment extends Model
      *
      * @return  self
      */
-    public function setContent($content)
+    public function setContent(string $content)
     {
         $this->content = htmlspecialchars($content);
 
@@ -111,7 +111,7 @@ class Comment extends Model
      *
      * @return  self
      */
-    public function setPostId($postId)
+    public function setPostId(int $postId)
     {
         $this->postId = $postId;
 
@@ -131,7 +131,7 @@ class Comment extends Model
      *
      * @return  self
      */
-    public function setValidated($validated)
+    public function setValidated(int $validated)
     {
         $this->validated = htmlspecialchars($validated);
 

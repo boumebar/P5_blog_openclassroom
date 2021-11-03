@@ -10,6 +10,8 @@ class CommentController extends Controller
 {
 
 
+    // Affiche la liste des commentaires pas validés
+
     public function index()
     {
         $this->isAdmin();
@@ -50,7 +52,7 @@ class CommentController extends Controller
         }
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         $this->isAdmin();
         if (!isset($_POST['token']) || empty($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
@@ -62,7 +64,9 @@ class CommentController extends Controller
         $this->redirect('comments?delete=1');
     }
 
-    public function validate($id)
+    // valider un commentaire 
+
+    public function validate(int $id)
     {
         $this->isAdmin();
         if (!isset($_POST['token']) || empty($_POST['token']) || $_POST['token'] !== $_SESSION['token']) {
