@@ -20,6 +20,16 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 
 ----- 
 
+## Download
+
+[Latest Release](https://github.com/emicheldev/blog-mvc/releases)  
+
+`git clone https://github.com/emicheldev/blog-mvc.git`  
+  
+[![Repo Size](https://img.shields.io/github/repo-size/emicheldev/blog-mvc.svg?label=Repo+Size)](https://github.com/emicheldev/blog-mvc/tree/master)
+
+---
+
 ## Packages utilisés
 
 - [`twig/twig`](https://packagist.org/packages/twig/twig)
