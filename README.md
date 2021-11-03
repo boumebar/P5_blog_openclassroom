@@ -14,11 +14,7 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 
 ----- 
 
-## Description du projet 
 
-
-
------ 
 
 ## Download
 
