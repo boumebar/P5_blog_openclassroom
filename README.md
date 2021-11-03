@@ -27,6 +27,17 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 [![Repo Size](https://img.shields.io/github/repo-size/boumebar/P5_blog_openclassroom.svg?label=Repo+Size)](https://github.com/boumebar/P5_blog_openclassroom/tree/main)
 
 ---
+## Installer le projet 
+
+*   Créer la Base de données
+*   Cloner le projet
+*   Télécharger les différentes librairies
+    *   Bootstrap
+    *   Jquery
+*   Installer les différentes dependances via Composer
+    *   phpmailer
+    *   Twig
+*   Inscrivez-vous, passer vos droits d'administration à 1 directement dans la base de données .
 
 ## Packages utilisés
 
