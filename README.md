@@ -22,8 +22,6 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 
 ## Download
 
-[Latest Release](https://github.com/emicheldev/blog-mvc/releases)  
-
 `git clone https://github.com/boumebar/P5_blog_openclassroom.git`  
   
 [![Repo Size](https://img.shields.io/github/repo-size/emicheldev/blog-mvc.svg?label=Repo+Size)](https://github.com/emicheldev/blog-mvc/tree/master)
