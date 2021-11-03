@@ -29,8 +29,9 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 ---
 ## Installer le projet 
 
-*   Créer la Base de données
+*   Créer la Base de données et importer le fichier blog_openclassroom.sql
 *   Cloner le projet
+*   Installer Composer. **Voir** [Composer Documentation](https://getcomposer.org/download/)
 *   Télécharger les différentes librairies
     *   Bootstrap
     *   Jquery
