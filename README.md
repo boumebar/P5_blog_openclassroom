@@ -24,7 +24,7 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
 
 `git clone https://github.com/boumebar/P5_blog_openclassroom.git`  
   
-[![Repo Size](https://img.shields.io/github/repo-size/boumebar/P5_blog_openclassroom.svg?label=Repo+Size)](https://github.com/boumebar/P5_blog_openclassroom/tree/master)
+[![Repo Size](https://img.shields.io/github/repo-size/boumebar/P5_blog_openclassroom.svg?label=Repo+Size)](https://github.com/boumebar/P5_blog_openclassroom/tree/main)
 
 ---
 
