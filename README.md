@@ -36,10 +36,6 @@ Le projet est de développer un blog professionnel avec une architecture MVC.
     *   Twig
 *   Inscrivez-vous, passer vos droits d'administration à 1 directement dans la base de données .
 
-## Visiter le site 
-
-Voici la première version de mon ste  [**ici**](https://blog.monportfolioweb.com/)
-
 ## Packages utilisés
 
 - [`twig/twig`](https://packagist.org/packages/twig/twig)
