@@ -6,11 +6,11 @@
 
 ## Information du projet 
 
-Projet de la formation ***Développeur d'application - PHP / Symfony***.
+Mon projet numéro 5 de la formation ***Développeur d'application - PHP / Symfony***.
 
 **Créez votre premier blog en PHP** - [Lien de la formation](https://openclassrooms.com/fr/paths/59-developpeur-dapplication-php-symfony)
   
-Le projet est de développer un blog professionnel avec une architecture MVC.
+Le projet était de développer un blog professionnel avec une architecture MVC.
 
 ----- 
 
