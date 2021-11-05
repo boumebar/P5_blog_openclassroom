@@ -31,7 +31,7 @@ Le projet était de développer un blog professionnel avec une architecture MVC.
 *   Télécharger les différentes librairies
     *   Bootstrap
     *   Jquery
-*   Installer les différentes dependances via Composer
+*   Installer les différentes dependances via Composer 
     *   phpmailer
     *   Twig
 *   Inscrivez-vous, passer vos droits d'administration à 1 directement dans la base de données . 
