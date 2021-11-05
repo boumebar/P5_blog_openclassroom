@@ -1,6 +1,6 @@
 # P5 blog openclassroom
 
-## Badge du projet
+## Badge du projet 
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/859946fb40d34a50879fbc90ac9bee62)](https://www.codacy.com/gh/boumebar/P5_blog_openclassroom/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=boumebar/P5_blog_openclassroom&amp;utm_campaign=Badge_Grade)
 
